@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fitowl — Studio Management, beautifully simple.</title>
+<meta name="description" content="Fitowl helps gyms, dance studios, yoga, Zumba, gymnastics and academies run memberships, attendance, billing and WhatsApp in one place.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f6f3;--ink:#111;--muted:#70716d;--line:#dfdfda;--card:#fff;--acid:#d8ff57;--black:#121212;--r:32px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",sans-serif}
+a{color:inherit;text-decoration:none}
+button,.btn{font:600 14px "DM Sans";border:0;cursor:pointer}
+.wrap{width:min(1220px,calc(100% - 36px));margin:auto}
+.nav{height:78px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:10}
+.brand{font:800 26px Manrope;letter-spacing:-.06em;display:flex;align-items:center;gap:10px}
+.brand i{width:13px;height:13px;background:var(--acid);border-radius:50%;box-shadow:0 0 0 4px var(--black)}
+.nav-links{display:flex;gap:26px;color:#6f706c;font-size:14px}
+.nav-links a:hover{color:#111}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:14px 19px;transition:transform .22s,background .22s}
+.btn.black{color:#fff;background:var(--black)} .btn.black:hover{transform:translateY(-2px);background:#2d2d2d}
+.btn.light{background:#fff;border:1px solid var(--line)} .btn.light:hover{transform:translateY(-2px)}
+.btn.acid{background:var(--acid);color:#111}
+.hero{padding:72px 0 0;text-align:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border:1px solid var(--line);background:#fff;border-radius:999px;font-size:12px;font-weight:700;color:#6b6c68}
+.eyebrow b{width:7px;height:7px;background:#79bf20;border-radius:50%}
+.hero h1{font:800 clamp(54px,8vw,104px)/.9 Manrope;letter-spacing:-.07em;max-width:1040px;margin:26px auto 22px}
+.hero h1 span{color:#858680}
+.hero p{max-width:650px;margin:0 auto 28px;font-size:18px;line-height:1.6;color:var(--muted)}
+.actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.hero-visual{height:600px;margin-top:58px;border-radius:42px;overflow:hidden;position:relative;background:
+linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.45)),
+url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2000&q=90") center/cover}
+.hero-visual:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(216,255,87,.35),transparent 28%)}
+.float-card{position:absolute;z-index:2;background:rgba(255,255,255,.94);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.65);border-radius:22px;padding:16px 18px;text-align:left;box-shadow:0 22px 60px rgba(0,0,0,.18)}
+.float-card b{font:700 25px Manrope;display:block;letter-spacing:-.04em}
+.float-card small{font-size:12px;color:#777}
+.float-a{left:24px;bottom:25px}.float-b{right:24px;top:25px}
+.float-b .ok{color:#52a000;font-weight:700}
+.ticker{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:25px}
+.ticker-track{display:flex;gap:34px;width:max-content;padding:18px 0;animation:scroll 26s linear infinite;color:#72736f;text-transform:uppercase;letter-spacing:.12em;font-size:11px;font-weight:700}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.section{padding:120px 0}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:36px}
+.kicker{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#898a85}
+.section h2{font:800 clamp(42px,5.5vw,72px)/.96 Manrope;letter-spacing:-.06em;margin:12px 0 0;max-width:730px}
+.section-head p{max-width:375px;color:var(--muted);line-height:1.65;margin:0}
+.use-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.use{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:10px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.use:hover{transform:translateY(-7px);box-shadow:0 25px 70px rgba(0,0,0,.09)}
+.use:nth-child(1),.use:nth-child(4){grid-column:span 7}
+.use:nth-child(2),.use:nth-child(3),.use:nth-child(5),.use:nth-child(6){grid-column:span 5}
+.photo{height:300px;border-radius:24px;overflow:hidden;background:#ddd}
+.use:nth-child(1) .photo,.use:nth-child(4) .photo{height:390px}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.use:hover img{transform:scale(1.04)}
+.copy{padding:18px 13px 16px}
+.copy h3{font:700 27px Manrope;letter-spacing:-.05em;margin:0 0 5px}
+.copy p{margin:0;color:#777;font-size:14px}
+.dark{background:var(--black);color:#fff;border-radius:42px;padding:72px}
+.darkgrid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.dark p{color:#a7a7a3;line-height:1.7;max-width:540px}
+.dark h2{font:800 clamp(43px,5vw,70px)/.96 Manrope;letter-spacing:-.06em;margin:12px 0 20px}
+.points{display:grid;gap:12px;margin:28px 0}
+.point{display:flex;align-items:center;gap:10px;color:#ddd;font-size:14px}
+.point i{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--acid);color:#111;font-style:normal;font-weight:800}
+.dashboard{background:#202020;border:1px solid #383838;border-radius:27px;padding:13px;box-shadow:0 30px 80px rgba(0,0,0,.4)}
+.d-top{height:225px;border-radius:19px;background:linear-gradient(135deg,#ddff7f,#a6cd43);color:#111;padding:22px}
+.d-top small{font-weight:700}
+.d-number{font:800 58px Manrope;margin-top:57px;letter-spacing:-.06em}
+.d-bottom{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.tile{background:#181818;border-radius:18px;padding:18px}
+.tile span{color:#858585;font-size:11px}.tile b{display:block;font:700 28px Manrope;margin-top:7px}
+.process{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.step{border-top:1px solid var(--line);padding-top:20px}
+.step .num{font:700 12px Manrope;color:#969792}
+.step h3{font:700 28px/1 Manrope;letter-spacing:-.05em;margin:31px 0 10px}
+.step p{color:var(--muted);line-height:1.65;margin:0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:28px 18px;text-align:center;border-right:1px solid var(--line)}.stat:last-child{border-right:0}
+.stat b{display:block;font:800 38px Manrope;letter-spacing:-.05em}.stat span{color:#7a7b77;font-size:12px}
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+details{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px 20px}
+summary{cursor:pointer;font-weight:700;list-style:none}
+summary::-webkit-details-marker{display:none}
+details p{color:#777;line-height:1.6;margin:12px 0 0;font-size:14px}
+.cta{padding:0 0 110px}
+.cta-box{background:var(--acid);border-radius:42px;padding:76px 25px;text-align:center}
+.cta-box h2{font:800 clamp(43px,6vw,78px)/.94 Manrope;letter-spacing:-.06em;margin:0 auto 18px;max-width:850px}
+.cta-box p{color:#4f5d24;max-width:540px;margin:0 auto 28px;line-height:1.6}
+footer{border-top:1px solid var(--line);padding:28px 0 42px;display:flex;justify-content:space-between;color:#858681;font-size:13px}
+@media(max-width:900px){
+ .nav-links{display:none}.hero{padding-top:40px}.hero-visual{height:470px;border-radius:28px}
+ .use:nth-child(n){grid-column:span 12}.use:nth-child(1) .photo,.use:nth-child(4) .photo,.photo{height:280px}
+ .section{padding:80px 0}.section-head{display:block}.section-head p{margin-top:18px}
+ .dark{padding:35px;border-radius:28px}.darkgrid,.process,.faq{grid-template-columns:1fr}
+ .stats{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+}
+@media(max-width:560px){
+ .wrap{width:min(100% - 24px,1220px)}.hero h1{font-size:52px}.hero p{font-size:16px}
+ .float-a{left:12px;bottom:12px}.float-b{right:12px;top:12px}.float-card{padding:13px 14px}.float-card b{font-size:20px}
+ .cta-box{border-radius:28px;padding:54px 20px}footer{display:block}footer span{display:block;margin:5px 0}
+}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+<nav class="nav">
+<a class="brand" href="#"><i></i>fitowl</a>
+<div class="nav-links">
+<a href="#solutions">Solutions</a><a href="#features">Features</a><a href="#how">How it works</a><a href="#faq">FAQ</a>
+</div>
+<a class="btn black" href="#demo">Book a demo ↗</a>
+</nav>
+</header>
+
+<main>
+<section class="hero wrap">
+<div class="eyebrow"><b></b> Software for modern fitness businesses</div>
+<h1>Run your studio.<br><span>Not your spreadsheets.</span></h1>
+<p>Fitowl brings members, attendance, payments, renewals and WhatsApp communication into one beautifully simple workspace.</p>
+<div class="actions"><a class="btn black" href="#demo">Start with Fitowl ↗</a><a class="btn light" href="#solutions">Explore solutions ↓</a></div>
+<div class="hero-visual">
+<div class="float-card float-a"><b>782</b><small>active members</small></div>
+<div class="float-card float-b"><b>WhatsApp <span class="ok">✓ automated</span></b><small>renewal reminders sent</small></div>
+</div>
+</section>
+
+<div class="ticker"><div class="ticker-track">
+<span>GYMS</span><span>•</span><span>DANCE STUDIOS</span><span>•</span><span>YOGA</span><span>•</span><span>ZUMBA</span><span>•</span><span>GYMNASTICS</span><span>•</span><span>ACADEMIES</span><span>•</span>
+<span>GYMS</span><span>•</span><span>DANCE STUDIOS</span><span>•</span><span>YOGA</span><span>•</span><span>ZUMBA</span><span>•</span><span>GYMNASTICS</span><span>•</span><span>ACADEMIES</span><span>•</span>
+</div></div>
+
+<section class="section wrap" id="solutions">
+<div class="section-head">
+<div><div class="kicker">One platform</div><h2>Built for every place people move.</h2></div>
+<p>Choose your business. Fitowl adapts to your members, batches, classes, trainers and day-to-day operations.</p>
+</div>
+<div class="use-grid">
+<article class="use"><div class="photo"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=90" alt="Gym member training"></div><div class="copy"><h3>Gym</h3><p>Memberships · PT · Attendance · Payments</p></div></article>
+<article class="use"><div class="photo"><img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=1000&q=90" alt="Yoga class"></div><div class="copy"><h3>Yoga</h3><p>Classes · Batches · Renewals · Members</p></div></article>
+<article class="use"><div class="photo"><img src="https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=1000&q=90" alt="Dance studio"></div><div class="copy"><h3>Dance</h3><p>Students · Batches · Fees · Communication</p></div></article>
+<article class="use"><div class="photo"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=90" alt="Zumba fitness class"></div><div class="copy"><h3>Zumba</h3><p>Class capacity · Attendance · Collections</p></div></article>
+<article class="use"><div class="photo"><img src="https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?auto=format&fit=crop&w=1000&q=90" alt="Gymnastics training"></div><div class="copy"><h3>Gymnastics</h3><p>Students · Coaches · Batches · Payments</p></div></article>
+<article class="use"><div class="photo"><img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1000&q=90" alt="Fitness academy"></div><div class="copy"><h3>Academies</h3><p>Run teams, classes and branches in one place.</p></div></article>
+</div>
+</section>
+
+<section class="section wrap" id="features">
+<div class="dark">
+<div class="darkgrid">
+<div>
+<div class="kicker" style="color:#898a85">The boring work, automated.</div>
+<h2>More coaching.<br>Less admin.</h2>
+<p>Fitowl is designed around the tasks studio owners actually repeat every day — member tracking, attendance, billing, renewals and communication.</p>
+<div class="points">
+<div class="point"><i>✓</i> Membership & renewal management</div>
+<div class="point"><i>✓</i> Attendance & batch tracking</div>
+<div class="point"><i>✓</i> Billing & payment records</div>
+<div class="point"><i>✓</i> WhatsApp expiry & payment reminders</div>
+<div class="point"><i>✓</i> Diet plans & client communication</div>
+</div>
+<a class="btn acid" href="#demo">See Fitowl in action ↗</a>
+</div>
+<div class="dashboard">
+<div class="d-top"><small>Monthly active members</small><div class="d-number">782</div><small>↑ 12.4% this month</small></div>
+<div class="d-bottom"><div class="tile"><span>Attendance</span><b>91%</b></div><div class="tile"><span>Collections</span><b>₹4.8L</b></div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section wrap">
+<div class="stats">
+<div class="stat"><b>1</b><span>workspace for your business</span></div>
+<div class="stat"><b>24/7</b><span>member data access</span></div>
+<div class="stat"><b>1-click</b><span>WhatsApp workflows</span></div>
+<div class="stat"><b>Less</b><span>spreadsheet admin</span></div>
+</div>
+</section>
+
+<section class="section wrap" id="how">
+<div class="section-head"><div><div class="kicker">Simple by design</div><h2>From setup to scale.</h2></div><p>No long implementation project. Get your business organised, then let the system handle the repeat work.</p></div>
+<div class="process">
+<div class="step"><div class="num">01 / SET UP</div><h3>Add your studio</h3><p>Add members, plans, batches, trainers and branches in one place.</p></div>
+<div class="step"><div class="num">02 / RUN</div><h3>Run your day</h3><p>Track attendance, collect payments and see what needs attention.</p></div>
+<div class="step"><div class="num">03 / GROW</div><h3>Automate the rest</h3><p>Use WhatsApp reminders and clean reporting to reduce missed renewals.</p></div>
+</div>
+</section>
+
+<section class="section wrap" id="faq">
+<div class="section-head"><div><div class="kicker">Questions</div><h2>Everything in one place.</h2></div><p>Common questions owners ask before switching from spreadsheets or older software.</p></div>
+<div class="faq">
+<details open><summary>Who is Fitowl for?</summary><p>Gyms, dance studios, yoga and Zumba classes, gymnastics centres and other membership-based fitness academies.</p></details>
+<details><summary>Can I manage multiple branches?</summary><p>Fitowl can be structured for multi-branch operations, with central visibility and branch-level workflows.</p></details>
+<details><summary>Can Fitowl send WhatsApp messages?</summary><p>Yes. Fitowl can support automated WhatsApp communication such as membership expiry and other operational notifications.</p></details>
+<details><summary>Do I need to change how my team works?</summary><p>The product is designed to simplify the existing workflow rather than force a complicated process around it.</p></details>
+</div>
+</section>
+
+<section class="cta wrap" id="demo">
+<div class="cta-box">
+<div class="kicker" style="color:#52621f">Ready?</div>
+<h2>Your studio deserves better software.</h2>
+<p>See how Fitowl can replace scattered spreadsheets, manual follow-ups and repetitive admin with one clean system.</p>
+<a class="btn black" href="mailto:hello@fitowl.in">Book a free demo ↗</a>
+</div>
+</section>
+</main>
+
+<footer class="wrap"><span>© 2026 Fitowl</span><span>fitowl.in</span></footer>
+</body>
+</html>
