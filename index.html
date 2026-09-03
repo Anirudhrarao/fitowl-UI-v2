@@ -8,263 +8,434 @@
 <body>
 <x-dc>
 <helmet>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Join Now — Fitowl</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
-html{scroll-behavior:smooth}
-body{margin:0;background:#070a0c;color:#0a0c10;-webkit-text-size-adjust:100%;text-size-adjust:100%;font-family:"DM Sans",-apple-system,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
-a{color:#8cecff;text-decoration:none}
-a:hover{color:#c6f4ff}
-input,select,textarea,button{font-family:inherit}
-input::placeholder,textarea::placeholder{color:rgba(255,255,255,.58)}
-select option{color:#0a0c10;background:#fff}
-select{appearance:none;-webkit-appearance:none}
+  html, body { margin: 0; padding: 0; background: #eef1f3; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  input, select, textarea, button { font-family: inherit; }
+  input::placeholder, textarea::placeholder { color: #a3adb5; }
+  a { color: #0e8fa3; text-decoration: none; }
+  a:hover { color: #0b0f10; }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 </style>
 </helmet>
+<div style="min-height:100%;background:radial-gradient(120% 46% at 50% 0%,#d3eef4 0%,#e9eff1 46%,#f6f7f8 100%);font-family:Manrope,Helvetica,Arial,sans-serif;color:#0b0f10;display:flex;justify-content:center;">
+<div style="width:100%;display:flex;justify-content:center;align-items:flex-start;gap:56px;padding:0;max-width:{{ shellMax }};">
 
-<div style="position:relative;overflow-x:hidden;min-height:100vh;background:#070a0c">
+<sc-if value="{{ isWide }}" hint-placeholder-val="{{ false }}">
+  <aside style="flex:1;max-width:520px;padding:48px 0 56px 8px;display:flex;flex-direction:column;gap:26px;">
 
-<div style="position:fixed;inset:0;z-index:0;pointer-events:none">
-  <img src="assets/join-hero.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 62%;display:block" />
-  <div style="position:absolute;inset:0;background:linear-gradient(104deg,rgba(4,8,10,.9) 0%,rgba(4,8,10,.78) 34%,rgba(6,20,26,.62) 58%,rgba(4,8,10,.84) 100%)"></div>
-  <div style="position:absolute;inset:0;background:radial-gradient(90% 70% at 12% 6%,rgba(57,204,233,.32),transparent 62%),radial-gradient(70% 60% at 96% 96%,rgba(14,127,150,.3),transparent 60%)"></div>
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,8,10,.55) 0%,transparent 24%,transparent 72%,rgba(4,8,10,.82) 100%)"></div>
-</div>
-
-<div style="position:relative;z-index:1">
-
-<header style="position:sticky;top:0;z-index:30;background:rgba(8,14,18,.3);backdrop-filter:blur(10px) saturate(125%);-webkit-backdrop-filter:blur(10px) saturate(125%);border-bottom:1px solid rgba(255,255,255,.08)">
-  <div style="width:min(1220px,calc(100% - clamp(18px,5vw,40px)));margin:auto;min-height:60px;padding:8px 0;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
-    <a href="#top" style="font-family:Manrope,sans-serif;font-size:clamp(19px,5vw,23px);font-weight:800;letter-spacing:-.05em;color:#fff;display:flex;align-items:center;gap:9px">
-      <img src="assets/fitowl-owl.png" alt="Fitowl" style="width:clamp(28px,7vw,34px);height:clamp(28px,7vw,34px);object-fit:contain;display:block" />fitowl</a>
-    <div style="font-size:clamp(12px,3.2vw,14px);font-weight:500;color:rgba(255,255,255,.62);text-align:right">Smart Gym Management <span style="color:#8cecff;font-weight:700">Software</span></div>
-  </div>
-</header>
-
-<main id="top" style="position:relative;padding:clamp(20px,3.4vw,46px) 0 clamp(24px,4vw,52px)">
-  <div style="width:min(1220px,calc(100% - clamp(18px,5vw,40px)));margin:auto;position:relative;display:flex;flex-wrap:wrap;gap:clamp(26px,2.8vw,40px);align-items:flex-start">
-
-    <aside style="flex:1 1 300px;max-width:440px;min-width:0;padding-top:clamp(2px,2.4vw,30px)">
-      <h1 style="font-family:Manrope,sans-serif;font-weight:800;font-size:clamp(38px,4.8vw,64px);line-height:.94;letter-spacing:-.065em;margin:6px 0 0;color:#fff;text-shadow:0 2px 30px rgba(0,0,0,.35);text-wrap:balance">Join today.<br /><span style="background:linear-gradient(120deg,#fff 6%,#8cecff 58%,#39cce9 100%);-webkit-background-clip:text;background-clip:text;color:transparent">Transform tomorrow.</span></h1>
-      <div style="width:64px;height:4px;border-radius:4px;background:#39cce9;margin:22px 0 20px"></div>
-      <p style="color:rgba(255,255,255,.74);font-size:16px;line-height:1.55;margin:0;max-width:380px;text-wrap:pretty">Start your fitness journey with a <b style="color:#fff;font-weight:700">Fitowl</b> powered gym. Seven details, one minute — your membership is created instantly.</p>
-
-      <div style="display:grid;gap:10px;margin:28px 0 26px">
-        <div style="display:flex;align-items:center;gap:13px;font-size:15px;color:rgba(255,255,255,.9)"><i style="width:34px;height:34px;border-radius:11px;background:rgba(140,236,255,.16);border:1px solid rgba(140,236,255,.28);color:#8cecff;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:13px;flex:none">01</i>Smart member management</div>
-        <div style="display:flex;align-items:center;gap:13px;font-size:15px;color:rgba(255,255,255,.9)"><i style="width:34px;height:34px;border-radius:11px;background:rgba(140,236,255,.16);border:1px solid rgba(140,236,255,.28);color:#8cecff;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:13px;flex:none">02</i>Easy check-in &amp; attendance</div>
-        <div style="display:flex;align-items:center;gap:13px;font-size:15px;color:rgba(255,255,255,.9)"><i style="width:34px;height:34px;border-radius:11px;background:rgba(140,236,255,.16);border:1px solid rgba(140,236,255,.28);color:#8cecff;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:13px;flex:none">03</i>Membership &amp; renewal reminders</div>
-        <div style="display:flex;align-items:center;gap:13px;font-size:15px;color:rgba(255,255,255,.9)"><i style="width:34px;height:34px;border-radius:11px;background:rgba(140,236,255,.16);border:1px solid rgba(140,236,255,.28);color:#8cecff;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:13px;flex:none">04</i>Secure payments &amp; receipts</div>
-        <div style="display:flex;align-items:center;gap:13px;font-size:15px;color:rgba(255,255,255,.9)"><i style="width:34px;height:34px;border-radius:11px;background:rgba(140,236,255,.16);border:1px solid rgba(140,236,255,.28);color:#8cecff;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:13px;flex:none">05</i>Progress reports &amp; analytics</div>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div style="width:52px;height:52px;border-radius:16px;background:#0b0f10;display:flex;align-items:center;justify-content:center;flex:none;">
+        <span style="font-family:Archivo,Helvetica,sans-serif;font-size:20px;font-weight:700;color:#3fd0e6;letter-spacing:-0.02em;">{{ gymInitials }}</span>
       </div>
-
-      <div style="display:flex;gap:13px;align-items:flex-start;max-width:360px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:18px;padding:16px 18px">
-        <i style="width:34px;height:34px;border-radius:11px;background:#8cecff;color:#06232b;display:grid;place-items:center;font-style:normal;font-size:15px;font-weight:800;flex:none">✓</i>
-        <span>
-          <b style="display:block;font-family:Manrope,sans-serif;font-weight:800;font-size:15px;letter-spacing:-.03em;color:#fff">Your data is 100% safe</b>
-          <small style="display:block;color:rgba(255,255,255,.68);font-size:13px;line-height:1.45;margin-top:3px">We never share your information with anyone.</small>
-        </span>
-      </div>
-    </aside>
-
-    <section style="flex:2 1 460px;min-width:0;background:linear-gradient(158deg,rgba(255,255,255,.14) 0%,rgba(255,255,255,.07) 46%,rgba(140,236,255,.07) 100%);backdrop-filter:blur(30px) saturate(150%);-webkit-backdrop-filter:blur(30px) saturate(150%);border:1px solid rgba(255,255,255,.2);border-radius:clamp(20px,2.4vw,32px);box-shadow:0 40px 110px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.28);padding:clamp(18px,2.8vw,40px)">
-
-      <div style="display:flex;align-items:center;gap:16px">
-        <span style="width:56px;height:56px;border-radius:50%;flex:none;background:rgba(140,236,255,.16);border:2px solid rgba(140,236,255,.55);display:grid;place-items:center;font-size:22px;color:#8cecff">☺</span>
-        <span>
-          <h2 style="font-family:Manrope,sans-serif;font-weight:800;font-size:clamp(26px,3vw,34px);letter-spacing:-.055em;margin:0;line-height:1.05;color:#fff">Join now</h2>
-          <small style="display:block;color:rgba(255,255,255,.62);font-size:14px;margin-top:4px">Fill the form below to get started.</small>
-        </span>
-      </div>
-
-      <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
-      <div>
-        <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
-          <div style="background:rgba(229,72,77,.16);border:1px solid rgba(255,138,141,.5);color:#ffc9cb;border-radius:14px;padding:13px 15px;font-size:14px;line-height:1.5;margin-top:24px">{{ errorText }}</div>
-        </sc-if>
-
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:18px 22px;margin-top:clamp(24px,2.8vw,32px)">
-          <div>
-            <span style="display:block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:9px">Full name <span style="color:#e5484d">*</span></span>
-            <input name="fullName" onChange="{{ onInput }}" placeholder="Enter your full name" style="width:100%;box-sizing:border-box;padding:14px 16px;border:1px solid rgba(255,255,255,.2);border-radius:14px;background:rgba(255,255,255,.08);font-size:16px;color:#fff;outline:none;min-height:52px;transition:border-color .18s ease,box-shadow .18s ease" style-focus="border-color:#8cecff;box-shadow:0 0 0 3px rgba(140,236,255,.22);background:rgba(255,255,255,.14)" />
-          </div>
-          <div>
-            <span style="display:block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:9px">Email</span>
-            <input name="email" onChange="{{ onInput }}" type="email" placeholder="you@example.com" style="width:100%;box-sizing:border-box;padding:14px 16px;border:1px solid rgba(255,255,255,.2);border-radius:14px;background:rgba(255,255,255,.08);font-size:16px;color:#fff;outline:none;min-height:52px;transition:border-color .18s ease,box-shadow .18s ease" style-focus="border-color:#8cecff;box-shadow:0 0 0 3px rgba(140,236,255,.22);background:rgba(255,255,255,.14)" />
-          </div>
-          <div>
-            <span style="display:block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:9px">Phone <span style="color:#e5484d">*</span></span>
-            <div style="display:flex;align-items:stretch;border:1px solid rgba(255,255,255,.2);border-radius:14px;overflow:hidden;background:rgba(255,255,255,.08)">
-              <span style="display:flex;align-items:center;padding:0 14px;background:rgba(255,255,255,.1);border-right:1px solid rgba(255,255,255,.16);font-size:16px;font-weight:600;color:rgba(255,255,255,.8);flex:none">+91</span>
-              <input name="phone" onChange="{{ onInput }}" inputMode="tel" maxLength="10" placeholder="10-digit mobile number" style="flex:1;min-width:0;border:0;background:transparent;padding:14px 16px;font-size:16px;color:#fff;outline:none;min-height:52px;box-sizing:border-box" />
-            </div>
-          </div>
-          <div>
-            <span style="display:block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:9px">Age</span>
-            <input name="age" onChange="{{ onInput }}" inputMode="numeric" maxLength="3" placeholder="e.g. 28" style="width:100%;box-sizing:border-box;padding:14px 16px;border:1px solid rgba(255,255,255,.2);border-radius:14px;background:rgba(255,255,255,.08);font-size:16px;color:#fff;outline:none;min-height:52px;transition:border-color .18s ease,box-shadow .18s ease" style-focus="border-color:#8cecff;box-shadow:0 0 0 3px rgba(140,236,255,.22);background:rgba(255,255,255,.14)" />
-          </div>
-          <div>
-            <span style="display:block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:9px">Plan <span style="color:#e5484d">*</span></span>
-            <div style="position:relative">
-              <select name="plan" onChange="{{ onPlan }}" style="width:100%;box-sizing:border-box;padding:14px 40px 14px 16px;border:1px solid rgba(255,255,255,.2);border-radius:14px;background:rgba(255,255,255,.08);font-size:16px;color:#fff;outline:none;min-height:52px;transition:border-color .18s ease,box-shadow .18s ease" style-focus="border-color:#8cecff;box-shadow:0 0 0 3px rgba(140,236,255,.22);background:rgba(255,255,255,.14)">
-                <option value="">Select plan</option>
-                <option value="monthly">Monthly — ₹1,499</option>
-                <option value="quarterly">Quarterly — ₹3,999</option>
-                <option value="halfyearly">Half-yearly — ₹6,999</option>
-                <option value="annual">Annual — ₹12,999</option>
-              </select>
-              <span style="position:absolute;right:16px;top:50%;transform:translateY(-50%);pointer-events:none;color:rgba(255,255,255,.55);font-size:11px">▼</span>
-            </div>
-          </div>
-          <div>
-            <span style="display:block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:9px">Start date</span>
-            <input name="startDate" onChange="{{ onInput }}" type="date" style="width:100%;box-sizing:border-box;padding:14px 16px;border:1px solid rgba(255,255,255,.2);border-radius:14px;background:rgba(255,255,255,.08);font-size:16px;color:#fff;outline:none;min-height:52px;transition:border-color .18s ease,box-shadow .18s ease" style-focus="border-color:#8cecff;box-shadow:0 0 0 3px rgba(140,236,255,.22);background:rgba(255,255,255,.14)" />
-          </div>
-        </div>
-
-        <div style="margin-top:18px">
-          <span style="display:block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:9px">Address</span>
-          <textarea name="address" onChange="{{ onInput }}" rows="3" placeholder="Enter address…" style="width:100%;box-sizing:border-box;padding:14px 16px;border:1px solid rgba(255,255,255,.2);border-radius:14px;background:rgba(255,255,255,.08);font-size:16px;color:#fff;outline:none;resize:vertical;line-height:1.55;transition:border-color .18s ease,box-shadow .18s ease" style-focus="border-color:#8cecff;box-shadow:0 0 0 3px rgba(140,236,255,.22);background:rgba(255,255,255,.14)"></textarea>
-        </div>
-
-        <sc-if value="{{ planPicked }}" hint-placeholder-val="{{ false }}">
-          <div style="margin-top:22px;background:rgba(140,236,255,.1);border:1px solid rgba(140,236,255,.35);border-radius:16px;padding:16px 20px;display:flex;flex-wrap:wrap;gap:10px 18px;justify-content:space-between;align-items:center">
-            <span style="font-size:14px;color:rgba(255,255,255,.78)">{{ planLabel }}</span>
-            <b style="font-family:Manrope,sans-serif;font-weight:800;font-size:24px;letter-spacing:-.05em;color:#fff">{{ planAmount }}</b>
-          </div>
-        </sc-if>
-
-        <button type="button" onClick="{{ toggleConsent }}" style="all:unset;cursor:pointer;display:flex;gap:11px;align-items:center;margin-top:20px;font-size:14px;color:rgba(255,255,255,.82);min-height:44px">
-          <span style="{{ consentBox }}">✓</span>
-          <span>I agree to the <a href="#terms" style="color:#8cecff;font-weight:700">Terms &amp; Conditions</a> and <a href="#privacy" style="color:#8cecff;font-weight:700">Privacy Policy</a>.</span>
-        </button>
-
-        <button type="button" onClick="{{ submit }}" style="all:unset;cursor:pointer;box-sizing:border-box;width:100%;margin-top:22px;padding:17px 24px;border-radius:16px;background:#8cecff;color:#052b34;font-size:16px;font-weight:700;min-height:56px;display:inline-flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 14px 34px rgba(140,236,255,.28);transition:transform .2s ease,background .2s ease" style-hover="background:#a9f2ff;transform:translateY(-1px)">Save member <span style="font-size:17px">→</span></button>
-      </div>
-      </sc-if>
-
-      <sc-if value="{{ isDone }}" hint-placeholder-val="{{ false }}">
-      <div style="text-align:center;padding:clamp(22px,3.4vw,44px) 0 clamp(10px,2vw,20px)">
-        <div style="width:76px;height:76px;border-radius:50%;margin:0 auto 22px;background:rgba(140,236,255,.16);border:2px solid rgba(140,236,255,.55);display:grid;place-items:center;font-size:30px;color:#8cecff">✓</div>
-        <h3 style="font-family:Manrope,sans-serif;font-weight:800;font-size:clamp(26px,3.2vw,36px);letter-spacing:-.055em;margin:0;color:#fff">{{ doneHeading }}</h3>
-        <p style="color:rgba(255,255,255,.72);font-size:15px;line-height:1.6;max-width:440px;margin:14px auto 0;text-wrap:pretty">Your membership has been created. You'll get a WhatsApp confirmation with your member ID and check-in details shortly.</p>
-        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:24px">
-          <span style="padding:11px 16px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);font-size:13px;font-weight:700;color:rgba(255,255,255,.85)">{{ donePlan }}</span>
-          <span style="padding:11px 16px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);font-size:13px;font-weight:700;color:rgba(255,255,255,.85)">{{ doneStart }}</span>
-        </div>
-        <div style="margin-top:28px">
-          <button type="button" onClick="{{ restart }}" style="all:unset;cursor:pointer;padding:15px 24px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);font-size:14px;font-weight:700;color:#fff;min-height:48px;display:inline-flex;align-items:center" style-hover="border-color:#8cecff;color:#8cecff">Add another member</button>
-        </div>
-      </div>
-      </sc-if>
-
-      <div style="margin-top:26px;padding-top:20px;border-top:1px solid rgba(255,255,255,.14)">
-        <div style="text-align:center;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.55)">Secure &amp; trusted payments</div>
-        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:14px">
-          <span style="display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:12px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);font-size:13px;font-weight:700;color:rgba(255,255,255,.88)"><i style="width:11px;height:17px;border-radius:3px;flex:none;border:1.5px solid rgba(140,236,255,.9);box-sizing:border-box"></i>UPI</span>
-          <span style="display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:12px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);font-size:13px;font-weight:700;color:rgba(255,255,255,.88)"><i style="width:22px;height:15px;border-radius:3px;flex:none;background:rgba(140,236,255,.85);box-shadow:inset 0 4px 0 rgba(5,43,52,.55)"></i>VISA</span>
-          <span style="display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:12px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);font-size:13px;font-weight:700;color:rgba(255,255,255,.88)"><i style="width:24px;height:15px;flex:none;position:relative;display:inline-block"><span style="position:absolute;left:0;top:0;width:15px;height:15px;border-radius:50%;background:rgba(140,236,255,.85)"></span><span style="position:absolute;right:0;top:0;width:15px;height:15px;border-radius:50%;background:rgba(255,255,255,.5)"></span></i>Mastercard</span>
-          <span style="display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:12px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);font-size:13px;font-weight:700;color:rgba(255,255,255,.88)"><i style="width:22px;height:15px;border-radius:3px;flex:none;background:rgba(140,236,255,.85);box-shadow:inset 0 4px 0 rgba(5,43,52,.55)"></i>RuPay</span>
-          <span style="display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:12px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);font-size:13px;font-weight:700;color:rgba(255,255,255,.88)"><i style="width:20px;height:15px;flex:none;background:linear-gradient(to right,rgba(140,236,255,.9) 0 3px,transparent 3px 6px,rgba(140,236,255,.9) 6px 9px,transparent 9px 12px,rgba(140,236,255,.9) 12px 15px);border-bottom:2px solid rgba(140,236,255,.9)"></i>Net banking</span>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <sc-if value="{{ showTrustBar }}" hint-placeholder-val="{{ true }}">
-  <div style="width:min(1220px,calc(100% - clamp(18px,5vw,40px)));margin:clamp(22px,2.6vw,34px) auto 0;position:relative;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-radius:clamp(20px,2.2vw,28px);padding:clamp(18px,2.4vw,28px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(210px,100%),1fr));gap:20px 24px;align-items:center">
-    <div style="display:flex;gap:16px;align-items:center">
-      <div style="width:78px;height:78px;border-radius:12px;flex:none;background:repeating-linear-gradient(45deg,rgba(255,255,255,.14),rgba(255,255,255,.14) 5px,rgba(255,255,255,.05) 5px,rgba(255,255,255,.05) 10px);display:grid;place-items:center;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9px;color:rgba(255,255,255,.6);text-align:center;line-height:1.2">QR<br />CODE</div>
-      <div>
-        <b style="display:block;font-family:Manrope,sans-serif;font-weight:800;font-size:16px;letter-spacing:-.03em;color:#8cecff">Scan to join</b>
-        <small style="display:block;color:rgba(255,255,255,.66);font-size:13px;line-height:1.45;margin-top:4px">Scan this code to open the form on your phone.</small>
+      <div style="min-width:0;">
+        <div style="font-family:Archivo,Helvetica,sans-serif;font-size:22px;font-weight:700;letter-spacing:-0.03em;line-height:1.1;">{{ gymName }}</div>
+        <sc-if value="{{ gymLocation }}" hint-placeholder-val="{{ false }}"><div style="font-size:12.5px;font-weight:600;color:#6b7480;margin-top:3px;">{{ gymLocation }}</div></sc-if>
       </div>
     </div>
-    <div style="display:flex;gap:13px;align-items:flex-start;color:#fff"><i style="width:38px;height:38px;border-radius:12px;background:rgba(140,236,255,.16);border:1px solid rgba(140,236,255,.28);color:#8cecff;display:grid;place-items:center;font-style:normal;font-size:16px;flex:none">⚡</i><span><b style="display:block;font-size:15px;font-weight:700">Quick &amp; easy</b><small style="display:block;color:rgba(255,255,255,.66);font-size:13px;line-height:1.45;margin-top:3px">Join in less than 2 minutes</small></span></div>
-    <div style="display:flex;gap:13px;align-items:flex-start;color:#fff"><i style="width:38px;height:38px;border-radius:12px;background:rgba(140,236,255,.16);border:1px solid rgba(140,236,255,.28);color:#8cecff;display:grid;place-items:center;font-style:normal;font-size:16px;flex:none">✓</i><span><b style="display:block;font-size:15px;font-weight:700">Secure</b><small style="display:block;color:rgba(255,255,255,.66);font-size:13px;line-height:1.45;margin-top:3px">Your data stays with your gym</small></span></div>
-    <div style="display:flex;gap:13px;align-items:flex-start;color:#fff"><i style="width:38px;height:38px;border-radius:12px;background:rgba(140,236,255,.16);border:1px solid rgba(140,236,255,.28);color:#8cecff;display:grid;place-items:center;font-style:normal;font-size:16px;flex:none">☎</i><span><b style="display:block;font-size:15px;font-weight:700">Need help?</b><small style="display:block;color:rgba(255,255,255,.66);font-size:13px;line-height:1.45;margin-top:3px">Talk to the front desk anytime</small></span></div>
-  </div>
+
+    <div>
+      <h2 style="font-family:Archivo,Helvetica,sans-serif;font-size:56px;line-height:0.95;letter-spacing:-0.045em;font-weight:700;margin:0;">Join today.<br /><span style="color:#0e8fa3;">Transform tomorrow.</span></h2>
+      <p style="font-size:16px;line-height:1.6;color:#4a545b;max-width:420px;margin:20px 0 0;font-weight:500;">Fill this once — at the counter or from your phone. No app download, no paperwork.</p>
+    </div>
+
+    <div style="border-radius:24px;background:linear-gradient(150deg,#0b0f10 0%,#132226 62%,#0f353d 100%);color:#fff;padding:24px;display:flex;flex-direction:column;gap:20px;">
+      <div style="display:flex;align-items:center;gap:13px;">
+        <img src="./fitowl-owl.png" alt="Fitowl" style="width:38px;height:38px;object-fit:contain;display:block;flex:none;" />
+        <div>
+          <div style="font-family:Archivo,Helvetica,sans-serif;font-size:19px;font-weight:700;letter-spacing:-0.03em;line-height:1;">fitowl</div>
+          <div style="font-size:12px;font-weight:600;color:#8fa2a7;margin-top:4px;">Gym management software</div>
+        </div>
+      </div>
+      <div style="height:1px;background:rgba(255,255,255,0.13);"></div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <sc-for list="{{ steps }}" as="sp" hint-placeholder-count="3">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:24px;height:24px;border-radius:8px;background:rgba(63,208,230,0.14);color:#7fdcea;font-family:Archivo,Helvetica,sans-serif;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none;">{{ sp.n }}</div>
+            <span style="font-size:14px;font-weight:600;color:#cfd9dc;">{{ sp.l }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:10px;padding-left:2px;">
+      <div style="width:7px;height:7px;border-radius:50%;background:#2bbf7a;flex:none;"></div>
+      <span style="font-size:12.5px;font-weight:600;color:#7c868d;">Your details are only used for your membership</span>
+    </div>
+  </aside>
+</sc-if>
+
+<div style="width:100%;padding:{{ colPad }};max-width:{{ colMax }};">
+
+  <sc-if value="{{ isNarrow }}" hint-placeholder-val="{{ true }}">
+    <div style="display:flex;align-items:center;gap:11px;padding:6px 2px 16px;">
+      <div style="width:40px;height:40px;border-radius:13px;background:#0b0f10;display:flex;align-items:center;justify-content:center;flex:none;">
+        <span style="font-family:Archivo,Helvetica,sans-serif;font-size:15px;font-weight:700;color:#3fd0e6;letter-spacing:-0.02em;">{{ gymInitials }}</span>
+      </div>
+      <div style="flex:1;min-width:0;">
+        <div style="font-family:Archivo,Helvetica,sans-serif;font-size:16.5px;font-weight:700;letter-spacing:-0.03em;line-height:1.15;">{{ gymName }}</div>
+        <sc-if value="{{ gymLocation }}" hint-placeholder-val="{{ false }}"><div style="font-size:11.5px;font-weight:600;color:#7c868d;margin-top:2px;">{{ gymLocation }}</div></sc-if>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;background:#fff;border:1px solid #e2e8ea;border-radius:99px;padding:6px 10px 6px 7px;flex:none;">
+        <img src="./fitowl-owl.png" alt="" style="width:17px;height:17px;object-fit:contain;display:block;" />
+        <span style="font-family:Archivo,Helvetica,sans-serif;font-size:11.5px;font-weight:700;color:#3b444b;letter-spacing:-0.01em;">fitowl</span>
+      </div>
+    </div>
   </sc-if>
-</main>
 
-<footer style="padding:0 0 clamp(28px,4vw,44px);color:rgba(255,255,255,.55)">
-  <div style="width:min(1220px,calc(100% - clamp(18px,5vw,40px)));margin:auto;display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding-top:22px;font-size:13px">
-    <div>© 2026 <b style="color:#fff;font-weight:700">Fitowl</b>. All rights reserved.</div>
-    <div><a href="https://www.fitowl.in">www.fitowl.in</a></div>
+  <div style="background:#fff;border:1px solid #e2e8ea;border-radius:26px;padding:{{ cardPad }};box-shadow:0 1px 2px rgba(11,15,16,0.04),0 18px 40px -28px rgba(11,15,16,0.28);">
+
+    <sc-if value="{{ showStepper }}" hint-placeholder-val="{{ true }}">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;">
+        <div style="font-size:11px;font-weight:700;color:#0e8fa3;letter-spacing:0.12em;text-transform:uppercase;white-space:nowrap;">Step {{ stepNum }} of 3</div>
+        <div style="font-size:11px;font-weight:600;color:#98a2aa;white-space:nowrap;">{{ minsLeft }}</div>
+      </div>
+  
+      <div style="display:flex;gap:6px;margin-top:10px;">
+        <div style="height:4px;flex:1;border-radius:99px;background:{{ bar1 }};"></div>
+        <div style="height:4px;flex:1;border-radius:99px;background:{{ bar2 }};"></div>
+        <div style="height:4px;flex:1;border-radius:99px;background:{{ bar3 }};"></div>
+      </div>
+    </sc-if>
+
+    <h1 style="font-family:Archivo,Helvetica,sans-serif;font-size:29px;line-height:1.08;letter-spacing:-0.035em;font-weight:700;margin:16px 0 6px;">{{ title }}</h1>
+    <p style="margin:0 0 22px;font-size:14px;line-height:1.5;color:#6b7480;">{{ subtitle }}</p>
+
+    <sc-if value="{{ isS1 }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;flex-direction:column;gap:18px;animation:rise .28s ease both;">
+
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <label for="full_name" style="font-size:13px;font-weight:600;color:#3b444b;">Full Name</label>
+          <input id="full_name" name="full_name" value="{{ v.name }}" onChange="{{ on.name }}" placeholder="e.g. Rahul Sharma" autoComplete="name" style="height:52px;border-radius:15px;border:1.5px solid #e2e8ea;background:#f8fafa;padding:0 15px;font-size:16px;font-weight:500;color:#0b0f10;outline:none;transition:border-color .15s,background .15s;" style-focus="border-color:#0b0f10;background:#fff;" />
+          <sc-if value="{{ err.name }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:12px;font-weight:600;color:#c2453c;">{{ err.name }}</div>
+          </sc-if>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <label for="mobile" style="font-size:13px;font-weight:600;color:#3b444b;">Mobile Number</label>
+          <div style="display:flex;align-items:stretch;gap:8px;">
+            <div style="height:52px;min-width:70px;border-radius:15px;border:1.5px solid #e2e8ea;background:#f2f5f6;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#3b444b;">+91</div>
+            <input id="mobile" name="mobile" value="{{ v.mobile }}" onChange="{{ on.mobile }}" autoComplete="tel" inputMode="numeric" placeholder="10-digit number" style="flex:1;height:52px;border-radius:15px;border:1.5px solid #e2e8ea;background:#f8fafa;padding:0 15px;font-size:16px;font-weight:500;letter-spacing:0.04em;color:#0b0f10;outline:none;transition:border-color .15s,background .15s;" style-focus="border-color:#0b0f10;background:#fff;" />
+          </div>
+          <sc-if value="{{ err.mobile }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:12px;font-weight:600;color:#c2453c;">{{ err.mobile }}</div>
+          </sc-if>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <label style="font-size:13px;font-weight:600;color:#3b444b;">Select Membership Plan</label>
+          <sc-for list="{{ plans }}" as="p" hint-placeholder-count="3">
+            <button type="button" onClick="{{ p.pick }}" style="{{ p.cardStyle }}">
+              <div style="{{ p.dotStyle }}"></div>
+              <div style="flex:1;text-align:left;">
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <span style="font-size:15px;font-weight:700;letter-spacing:-0.01em;">{{ p.label }}</span>
+                  <sc-if value="{{ p.tag }}" hint-placeholder-val="{{ false }}">
+                    <span style="font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#08616f;background:#d6f2f6;padding:3px 7px;border-radius:99px;">{{ p.tag }}</span>
+                  </sc-if>
+                </div>
+                <div style="font-size:12.5px;color:#6b7480;margin-top:3px;font-weight:500;">{{ p.note }}</div>
+              </div>
+              <div style="text-align:right;flex:none;white-space:nowrap;">
+                <div style="font-family:Archivo,Helvetica,sans-serif;font-size:17px;font-weight:700;letter-spacing:-0.02em;">{{ p.price }}</div>
+                <div style="font-size:11px;color:#98a2aa;font-weight:600;margin-top:2px;">{{ p.per }}</div>
+              </div>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isS2 }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;gap:18px;animation:rise .28s ease both;">
+
+        <div style="display:flex;gap:12px;">
+          <div style="width:110px;display:flex;flex-direction:column;gap:7px;">
+            <label for="age" style="font-size:13px;font-weight:600;color:#3b444b;">Age</label>
+            <input id="age" name="age" value="{{ v.age }}" onChange="{{ on.age }}" inputMode="numeric" placeholder="24" style="height:52px;border-radius:15px;border:1.5px solid #e2e8ea;background:#f8fafa;padding:0 15px;font-size:16px;font-weight:500;outline:none;transition:border-color .15s,background .15s;" style-focus="border-color:#0b0f10;background:#fff;" />
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:7px;">
+            <label for="email" style="font-size:13px;font-weight:600;color:#3b444b;">Email</label>
+            <input id="email" name="email" type="email" value="{{ v.email }}" onChange="{{ on.email }}" autoComplete="email" inputMode="email" placeholder="you@email.com" style="height:52px;border-radius:15px;border:1.5px solid #e2e8ea;background:#f8fafa;padding:0 15px;font-size:16px;font-weight:500;outline:none;transition:border-color .15s,background .15s;" style-focus="border-color:#0b0f10;background:#fff;" />
+          </div>
+        </div>
+        <sc-if value="{{ err.step2 }}" hint-placeholder-val="{{ false }}">
+          <div style="font-size:12px;font-weight:600;color:#c2453c;margin-top:-12px;">{{ err.step2 }}</div>
+        </sc-if>
+
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <label style="font-size:13px;font-weight:600;color:#3b444b;">Fitness Goal</label>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <sc-for list="{{ goals }}" as="g" hint-placeholder-count="5">
+              <button type="button" onClick="{{ g.pick }}" style="{{ g.style }}">{{ g.label }}</button>
+            </sc-for>
+          </div>
+          <sc-if value="{{ err.goal }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:12px;font-weight:600;color:#c2453c;">{{ err.goal }}</div>
+          </sc-if>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div style="display:flex;align-items:center;gap:6px;">
+            <label for="address" style="font-size:13px;font-weight:600;color:#3b444b;">Address</label>
+            <span style="font-size:11px;font-weight:600;color:#98a2aa;">Optional</span>
+          </div>
+          <textarea id="address" name="address" value="{{ v.addr }}" onChange="{{ on.addr }}" rows="3" placeholder="House / street, area, city" style="border-radius:15px;border:1.5px solid #e2e8ea;background:#f8fafa;padding:13px 15px;font-size:15px;font-weight:500;line-height:1.5;resize:none;outline:none;transition:border-color .15s,background .15s;" style-focus="border-color:#0b0f10;background:#fff;"></textarea>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isS3 }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;gap:14px;animation:rise .28s ease both;">
+
+        <div style="border-radius:20px;padding:20px;background:linear-gradient(150deg,#0b0f10 0%,#132226 62%,#0f353d 100%);color:#fff;">
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#7fdcea;">Your plan</span>
+            <button type="button" onClick="{{ toStep1 }}" style="background:rgba(255,255,255,0.12);border:none;color:#fff;font-size:11.5px;font-weight:700;padding:6px 11px;border-radius:99px;cursor:pointer;">Change</button>
+          </div>
+          <div style="font-family:Archivo,Helvetica,sans-serif;font-size:38px;font-weight:700;letter-spacing:-0.04em;margin-top:12px;line-height:1;">{{ planPrice }}</div>
+          <div style="font-size:14px;font-weight:600;color:#b7c4c8;margin-top:6px;">{{ planLine }}</div>
+          <div style="height:1px;background:rgba(255,255,255,0.14);margin:16px 0 13px;"></div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;color:#cfd9dc;">
+            <span>Start date</span><span style="color:#fff;">{{ startDate }}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;color:#cfd9dc;margin-top:8px;">
+            <span>Valid till</span><span style="color:#fff;">{{ endDate }}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;color:#cfd9dc;margin-top:8px;">
+            <span>Payment mode</span><span style="color:#7fdcea;">Cash at counter</span>
+          </div>
+        </div>
+
+        <div style="border:1px solid #e2e8ea;border-radius:20px;padding:16px 16px 6px;background:#fbfcfc;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+            <span style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#6b7480;">Member</span>
+            <button type="button" onClick="{{ toStep1 }}" style="background:none;border:none;color:#0e8fa3;font-size:11.5px;font-weight:700;cursor:pointer;padding:0;">Edit</button>
+          </div>
+          <sc-for list="{{ summary }}" as="s" hint-placeholder-count="4">
+            <div style="display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-top:1px solid #edf1f2;">
+              <span style="font-size:13px;font-weight:600;color:#6b7480;">{{ s.k }}</span>
+              <span style="font-size:13px;font-weight:600;text-align:right;">{{ s.val }}</span>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="border:1.5px solid #0b0f10;border-radius:20px;padding:15px 16px;display:flex;align-items:center;gap:13px;background:#fbfcfc;">
+          <div style="width:38px;height:38px;flex:none;border-radius:12px;background:#d6f2f6;display:flex;align-items:center;justify-content:center;font-family:Archivo,Helvetica,sans-serif;font-size:15px;font-weight:700;color:#08616f;">₹</div>
+          <div style="flex:1;">
+            <div style="font-size:14px;font-weight:700;letter-spacing:-0.01em;">Cash at the counter</div>
+            <div style="font-size:12.5px;font-weight:500;color:#6b7480;margin-top:2px;">Hand over {{ planPrice }} at reception — online payment coming soon.</div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isDone }}" hint-placeholder-val="{{ false }}">
+      <div style="text-align:center;padding:12px 4px 8px;animation:rise .3s ease both;">
+        <div style="width:78px;height:78px;border-radius:50%;background:radial-gradient(circle at 50% 40%,#e2f6fa,#f2f8f9);margin:0 auto 18px;display:flex;align-items:center;justify-content:center;">
+          <img src="./fitowl-owl.png" alt="" style="width:46px;height:46px;object-fit:contain;display:block;" />
+        </div>
+        <p style="font-size:14px;line-height:1.55;color:#6b7480;margin:8px 0 0;">Details saved. Pay <strong style="color:#0b0f10;">{{ planPrice }}</strong> in cash at the counter and your membership starts {{ startDate }}.</p>
+        <div style="margin-top:18px;border:1px dashed #cfd9dc;border-radius:16px;padding:14px;font-size:13px;font-weight:600;color:#3b444b;">Member ID <span style="font-family:Archivo,Helvetica,sans-serif;letter-spacing:0.06em;">{{ memberId }}</span></div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ inlineCta }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;gap:10px;align-items:center;margin-top:26px;">
+        <sc-if value="{{ showBack }}" hint-placeholder-val="{{ false }}">
+          <button type="button" onClick="{{ back }}" style="height:56px;min-width:58px;border-radius:18px;border:1.5px solid #dde4e6;background:#fff;font-size:20px;font-weight:600;color:#3b444b;cursor:pointer;" style-hover="border-color:#0b0f10;">←</button>
+        </sc-if>
+        <button type="button" onClick="{{ next }}" style="flex:1;height:56px;border-radius:18px;border:none;background:#0b0f10;color:#fff;font-family:Archivo,Helvetica,sans-serif;font-size:16px;font-weight:600;letter-spacing:-0.01em;cursor:pointer;box-shadow:0 12px 26px -14px rgba(11,15,16,0.7);transition:transform .12s,background .15s;" style-hover="background:#162326;" style-active="transform:scale(0.985);">{{ ctaLabel }}</button>
+      </div>
+    </sc-if>
   </div>
-</footer>
-</div>
-</div>
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;showTrustBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;}}">
-class Component extends DCLogic {
-  state = { consent: false, error: "", plan: "", done: false, doneName: "", donePlan: "", doneStart: "" };
-  vals = {};
 
-  plans = {
-    monthly: { label: "Monthly membership", price: 1499 },
-    quarterly: { label: "Quarterly membership", price: 3999 },
-    halfyearly: { label: "Half-yearly membership", price: 6999 },
-    annual: { label: "Annual membership", price: 12999 }
+  <div style="display:flex;align-items:center;justify-content:center;gap:7px;margin-top:16px;">
+    <span style="font-size:11.5px;font-weight:600;color:#8b959c;">Your data is 100% safe · powered by</span>
+    <span style="font-family:Archivo,Helvetica,sans-serif;font-size:12px;font-weight:700;color:#3b444b;">fitowl</span>
+  </div>
+</div>
+</div>
+
+<sc-if value="{{ stickyCta }}" hint-placeholder-val="{{ true }}">
+  <div style="position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:center;pointer-events:none;">
+    <div style="width:100%;max-width:440px;padding:14px 16px 18px;background:linear-gradient(180deg,rgba(246,247,248,0) 0%,rgba(246,247,248,0.92) 42%,#f6f7f8 100%);pointer-events:auto;">
+      <div style="display:flex;gap:10px;align-items:center;">
+        <sc-if value="{{ showBack }}" hint-placeholder-val="{{ false }}">
+          <button type="button" onClick="{{ back }}" style="height:56px;min-width:56px;border-radius:18px;border:1.5px solid #dde4e6;background:#fff;font-size:20px;font-weight:600;color:#3b444b;cursor:pointer;">←</button>
+        </sc-if>
+        <button type="button" onClick="{{ next }}" style="flex:1;height:56px;border-radius:18px;border:none;background:#0b0f10;color:#fff;font-family:Archivo,Helvetica,sans-serif;font-size:16px;font-weight:600;letter-spacing:-0.01em;cursor:pointer;box-shadow:0 12px 26px -14px rgba(11,15,16,0.7);transition:transform .12s;" style-active="transform:scale(0.985);">{{ ctaLabel }}</button>
+      </div>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:420,&quot;height&quot;:880},&quot;gymName&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Your Gym Name&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Gym&quot;},&quot;gymLocation&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Gym&quot;}}">
+class Component extends DCLogic {
+  state = {
+    wide: typeof window !== 'undefined' && window.innerWidth >= 900,
+    step: 1, done: false,
+    f: { name: '', mobile: '', plan: 'year', age: '', email: '', goal: '', addr: '' },
+    err: {}
   };
 
-  money(n) { return "₹" + n.toLocaleString("en-IN"); }
-
-  fmtDate(v) {
-    if (!v) return "Starts today";
-    const d = new Date(v + "T00:00:00");
-    if (isNaN(d)) return "Starts today";
-    return "Starts " + d.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
+  componentDidMount() {
+    this._onResize = () => {
+      const wide = window.innerWidth >= 900;
+      if (wide !== this.state.wide) this.setState({ wide });
+    };
+    window.addEventListener('resize', this._onResize);
+    this._onResize();
   }
 
-  submit = () => {
-    const v = this.vals;
-    const missing = [];
-    if (!(v.fullName || "").trim()) missing.push("full name");
-    if (!/^\d{10}$/.test((v.phone || "").replace(/\D/g, ""))) missing.push("a valid 10-digit phone number");
-    if (!this.state.plan) missing.push("a plan");
-    if (!this.state.consent) missing.push("your agreement to the terms");
-    if (missing.length) {
-      this.setState({ error: "Please add " + missing.join(", ") + " to continue." });
-      return;
+  componentWillUnmount() { window.removeEventListener('resize', this._onResize); }
+
+  set(k, val) {
+    this.setState(s => ({ f: { ...s.f, [k]: val }, err: { ...s.err, [k]: null } }));
+  }
+
+  planList() {
+    return [
+      { id: 'month', label: 'Monthly', price: 800, per: '/ month', note: 'Pay as you go' },
+      { id: 'quarter', label: 'Quarterly', price: 2100, per: '/ 3 months', note: 'Save ₹300' },
+      { id: 'year', label: 'Yearly', price: 7000, per: '/ year', note: '2 months free + diet plan', tag: 'Best value' }
+    ];
+  }
+
+  money(n) { return '₹' + n.toLocaleString('en-IN'); }
+
+  fmt(d) {
+    return d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+  }
+
+  validate() {
+    const f = this.state.f, e = {};
+    if (this.state.step === 1) {
+      if (f.name.trim().length < 3) e.name = 'Please enter your full name';
+      if (!/^[6-9]\d{9}$/.test(f.mobile.replace(/\D/g, ''))) e.mobile = 'Enter a valid 10-digit mobile number';
+    } else if (this.state.step === 2) {
+      const age = parseInt(f.age, 10);
+      if (!(age >= 12 && age <= 99)) e.step2 = 'Enter an age between 12 and 99';
+      else if (!/^[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test(f.email)) e.step2 = 'Enter a valid email address';
+      if (!f.goal) e.goal = 'Pick one goal so we can plan your training';
     }
-    const p = this.plans[this.state.plan];
-    this.setState({
-      error: "", done: true,
-      doneName: (v.fullName || "").trim().split(/\s+/)[0],
-      donePlan: p.label + " · " + this.money(p.price),
-      doneStart: this.fmtDate(v.startDate)
-    });
+    this.setState({ err: e });
+    return Object.keys(e).length === 0;
+  }
+
+  next = () => {
+    if (this.state.done) return;
+    if (this.state.step === 3) { this.setState({ done: true }); return; }
+    if (this.validate()) this.setState(s => ({ step: s.step + 1 }));
   };
 
-  restart = () => {
-    this.vals = {};
-    this.setState({ done: false, consent: false, plan: "", error: "" });
-  };
+  back = () => this.setState(s => ({ step: Math.max(1, s.step - 1), err: {} }));
 
   renderVals() {
-    const plan = this.state.plan ? this.plans[this.state.plan] : null;
-    const c = this.state.consent;
+    const { step, done, f, err, wide } = this.state;
+    const plan = this.planList().find(p => p.id === f.plan) || this.planList()[2];
+    const start = new Date();
+    const end = new Date(start);
+    if (plan.id === 'month') end.setMonth(end.getMonth() + 1);
+    else if (plan.id === 'quarter') end.setMonth(end.getMonth() + 3);
+    else end.setFullYear(end.getFullYear() + 1);
+
+    const on = {};
+    ['name', 'mobile', 'age', 'email', 'addr'].forEach(k => {
+      on[k] = ev => {
+        let val = ev.target.value;
+        if (k === 'mobile') val = val.replace(/\D/g, '').slice(0, 10);
+        if (k === 'age') val = val.replace(/\D/g, '').slice(0, 2);
+        this.set(k, val);
+      };
+    });
+
+    const plans = this.planList().map(p => {
+      const sel = p.id === f.plan;
+      return {
+        ...p,
+        price: this.money(p.price),
+        tag: p.tag || '',
+        pick: () => this.set('plan', p.id),
+        cardStyle: [
+          'display:flex;align-items:center;gap:12px;width:100%;padding:14px 15px;border-radius:17px;cursor:pointer;text-align:left;font-family:inherit;color:#0b0f10;transition:border-color .15s,background .15s',
+          'border:1.5px solid ' + (sel ? '#0b0f10' : '#e2e8ea'),
+          'background:' + (sel ? '#fff' : '#f8fafa'),
+          'box-shadow:' + (sel ? '0 10px 24px -18px rgba(11,15,16,0.6)' : 'none')
+        ].join(';'),
+        dotStyle: [
+          'width:20px;height:20px;border-radius:50%;flex:none;display:block',
+          'border:' + (sel ? '6px solid #0e8fa3' : '2px solid #cfd9dc'),
+          'background:#fff'
+        ].join(';')
+      };
+    });
+
+    const goals = ['Weight loss', 'Muscle gain', 'Strength', 'General fitness', 'Cardio & stamina'].map(g => {
+      const sel = g === f.goal;
+      return {
+        label: g,
+        pick: () => this.set('goal', g),
+        style: [
+          'padding:11px 15px;border-radius:99px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s',
+          'border:1.5px solid ' + (sel ? '#0b0f10' : '#e2e8ea'),
+          'background:' + (sel ? '#0b0f10' : '#f8fafa'),
+          'color:' + (sel ? '#fff' : '#3b444b')
+        ].join(';')
+      };
+    });
+
+    const titles = {
+      1: ['Your details', 'Two quick things and your spot is held.'],
+      2: ['A little about you', 'This shapes your first training plan.'],
+      3: ['Confirm & pay', 'Review it once, then pay in cash at the counter.']
+    };
+    const t = titles[step];
+    const gym = this.props.gymName ?? 'Your Gym Name';
+    const active = '#0b0f10', idle = '#e2e8ea';
+
     return {
-      onInput: (e) => { this.vals[e.target.name] = e.target.value; },
-      onPlan: (e) => { this.vals.plan = e.target.value; this.setState({ plan: e.target.value }); },
-      toggleConsent: () => this.setState((s) => ({ consent: !s.consent })),
-      consentBox: "width:22px;height:22px;border-radius:7px;flex:none;display:grid;place-items:center;font-size:13px;font-weight:800;transition:background .18s ease,border-color .18s ease;border:1.5px solid " + (c ? "#8cecff" : "rgba(255,255,255,.35)") + ";background:" + (c ? "#8cecff" : "rgba(255,255,255,.1)") + ";color:" + (c ? "#052b34" : "transparent"),
-      hasError: !!this.state.error,
-      errorText: this.state.error,
-      showTrustBar: this.props.showTrustBar ?? true,
-      showForm: !this.state.done,
-      isDone: this.state.done,
-      planPicked: !!plan,
-      planLabel: plan ? plan.label : "",
-      planAmount: plan ? this.money(plan.price) : "",
-      doneHeading: this.state.doneName ? "You're in, " + this.state.doneName + "!" : "You're in!",
-      donePlan: this.state.donePlan,
-      doneStart: this.state.doneStart,
-      submit: this.submit,
-      restart: this.restart
+      stepNum: step, isS1: !done && step === 1, isS2: !done && step === 2, isS3: !done && step === 3, isDone: done,
+      title: done ? 'Welcome aboard' : t[0],
+      subtitle: done ? 'Membership confirmed.' : t[1],
+      minsLeft: step === 3 ? 'Almost done' : 'Under 2 minutes',
+      bar1: active, bar2: step >= 2 ? active : idle, bar3: step >= 3 ? active : idle,
+      v: f, on, err, plans, goals,
+      planPrice: this.money(plan.price),
+      planLine: plan.label + ' membership · ' + plan.note,
+      startDate: 'Today, ' + this.fmt(start),
+      endDate: this.fmt(end),
+      summary: [
+        { k: 'Name', val: f.name || '—' },
+        { k: 'Mobile', val: f.mobile ? '+91 ' + f.mobile : '—' },
+        { k: 'Age', val: f.age || '—' },
+        { k: 'Email', val: f.email || '—' },
+        { k: 'Goal', val: f.goal || '—' },
+        { k: 'Address', val: f.addr || 'Not added' }
+      ],
+      memberId: 'FO-' + String(start.getFullYear()).slice(2) + '-' + (f.mobile ? f.mobile.slice(-4) : '0000'),
+      ctaLabel: step === 3 ? 'Confirm — pay ' + this.money(plan.price) + ' cash' : 'Continue →',
+      isWide: wide, isNarrow: !wide,
+      shellMax: wide ? '1120px' : '440px',
+      colMax: wide ? '512px' : '440px',
+      colPad: wide ? '52px 8px 60px' : '14px 16px 132px',
+      cardPad: wide ? '34px 32px 30px' : '22px 18px 20px',
+      gymName: gym,
+      gymInitials: gym.split(/\s+/).slice(0, 2).map(w => w[0]).join('').toUpperCase(),
+      gymLocation: this.props.gymLocation ?? '',
+      steps: [
+        { n: '1', l: 'Your details' },
+        { n: '2', l: 'A little about you' },
+        { n: '3', l: 'Confirm & pay at the counter' }
+      ],
+      inlineCta: wide && !done, stickyCta: !wide && !done,
+      showBack: step > 1,
+      next: this.next, back: this.back,
+      toStep1: () => this.setState({ step: 1, err: {} })
     };
   }
 }
