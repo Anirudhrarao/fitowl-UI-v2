@@ -12,137 +12,94 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
-  html, body { margin: 0; padding: 0; background: #eef1f3; -webkit-font-smoothing: antialiased; }
+  html { height: 100%; }
+  body { margin: 0; padding: 0; min-height: 100%; -webkit-font-smoothing: antialiased;
+    background-color: #eef4fb;
+    background-image: radial-gradient(120% 620px at 50% 0%, #dfeeff 0%, rgba(238,244,251,0) 100%);
+    background-repeat: no-repeat; background-attachment: fixed; }
   * { box-sizing: border-box; }
   input, select, textarea, button { font-family: inherit; }
-  input::placeholder, textarea::placeholder { color: #a3adb5; }
-  a { color: #0e8fa3; text-decoration: none; }
-  a:hover { color: #0b0f10; }
+  input::placeholder, textarea::placeholder { color: #a7b2c2; }
+  a { color: #1a7cff; text-decoration: none; }
+  a:hover { color: #101828; }
   @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 </style>
 </helmet>
-<div style="min-height:100%;background:radial-gradient(120% 46% at 50% 0%,#d3eef4 0%,#e9eff1 46%,#f6f7f8 100%);font-family:Manrope,Helvetica,Arial,sans-serif;color:#0b0f10;display:flex;justify-content:center;">
-<div style="width:100%;display:flex;justify-content:center;align-items:flex-start;gap:56px;padding:0;max-width:{{ shellMax }};">
+<div style="min-height:100vh;font-family:Manrope,Helvetica,Arial,sans-serif;color:#101828;display:flex;justify-content:center;">
+<div style="width:100%;max-width:430px;padding:14px 16px 132px;">
 
-<sc-if value="{{ isWide }}" hint-placeholder-val="{{ false }}">
-  <aside style="flex:1;max-width:520px;padding:48px 0 56px 8px;display:flex;flex-direction:column;gap:26px;">
-
-    <div style="display:flex;align-items:center;gap:14px;">
-      <div style="width:52px;height:52px;border-radius:16px;background:#0b0f10;display:flex;align-items:center;justify-content:center;flex:none;">
-        <span style="font-family:Archivo,Helvetica,sans-serif;font-size:20px;font-weight:700;color:#3fd0e6;letter-spacing:-0.02em;">{{ gymInitials }}</span>
-      </div>
-      <div style="min-width:0;">
-        <div style="font-family:Archivo,Helvetica,sans-serif;font-size:22px;font-weight:700;letter-spacing:-0.03em;line-height:1.1;">{{ gymName }}</div>
-        <sc-if value="{{ gymLocation }}" hint-placeholder-val="{{ false }}"><div style="font-size:12.5px;font-weight:600;color:#6b7480;margin-top:3px;">{{ gymLocation }}</div></sc-if>
-      </div>
+  <div style="display:flex;align-items:center;gap:11px;padding:6px 2px 16px;">
+    <div style="width:40px;height:40px;border-radius:13px;background:linear-gradient(160deg,#3b90ff,#1a6fe8);display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 10px 20px -12px rgba(26,124,255,0.7);">
+      <span style="font-family:Archivo,Helvetica,sans-serif;font-size:15px;font-weight:700;color:#fff;letter-spacing:-0.02em;">{{ gymInitials }}</span>
     </div>
-
-    <div>
-      <h2 style="font-family:Archivo,Helvetica,sans-serif;font-size:56px;line-height:0.95;letter-spacing:-0.045em;font-weight:700;margin:0;">Join today.<br /><span style="color:#0e8fa3;">Transform tomorrow.</span></h2>
-      <p style="font-size:16px;line-height:1.6;color:#4a545b;max-width:420px;margin:20px 0 0;font-weight:500;">Fill this once — at the counter or from your phone. No app download, no paperwork.</p>
+    <div style="flex:1;min-width:0;">
+      <div style="font-family:Archivo,Helvetica,sans-serif;font-size:16.5px;font-weight:700;letter-spacing:-0.03em;line-height:1.15;">{{ gymName }}</div>
+      <div style="font-size:11.5px;font-weight:600;color:#8493a8;margin-top:2px;">Membership sign-up</div>
     </div>
-
-    <div style="border-radius:24px;background:linear-gradient(150deg,#0b0f10 0%,#132226 62%,#0f353d 100%);color:#fff;padding:24px;display:flex;flex-direction:column;gap:20px;">
-      <div style="display:flex;align-items:center;gap:13px;">
-        <img src="./fitowl-owl.png" alt="Fitowl" style="width:38px;height:38px;object-fit:contain;display:block;flex:none;" />
-        <div>
-          <div style="font-family:Archivo,Helvetica,sans-serif;font-size:19px;font-weight:700;letter-spacing:-0.03em;line-height:1;">fitowl</div>
-          <div style="font-size:12px;font-weight:600;color:#8fa2a7;margin-top:4px;">Gym management software</div>
-        </div>
-      </div>
-      <div style="height:1px;background:rgba(255,255,255,0.13);"></div>
-      <div style="display:flex;flex-direction:column;gap:14px;">
-        <sc-for list="{{ steps }}" as="sp" hint-placeholder-count="3">
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div style="width:24px;height:24px;border-radius:8px;background:rgba(63,208,230,0.14);color:#7fdcea;font-family:Archivo,Helvetica,sans-serif;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none;">{{ sp.n }}</div>
-            <span style="font-size:14px;font-weight:600;color:#cfd9dc;">{{ sp.l }}</span>
-          </div>
-        </sc-for>
-      </div>
+    <div style="display:flex;align-items:center;gap:6px;background:#fff;border:1px solid #e4ecf6;border-radius:99px;padding:6px 11px 6px 7px;flex:none;">
+      <img src="./fitowl-owl.png" alt="" style="width:17px;height:17px;object-fit:contain;display:block;" />
+      <span style="font-family:Archivo,Helvetica,sans-serif;font-size:11.5px;font-weight:700;color:#475467;letter-spacing:-0.01em;">fitowl</span>
     </div>
+  </div>
 
-    <div style="display:flex;align-items:center;gap:10px;padding-left:2px;">
-      <div style="width:7px;height:7px;border-radius:50%;background:#2bbf7a;flex:none;"></div>
-      <span style="font-size:12.5px;font-weight:600;color:#7c868d;">Your details are only used for your membership</span>
-    </div>
-  </aside>
-</sc-if>
-
-<div style="width:100%;padding:{{ colPad }};max-width:{{ colMax }};">
-
-  <sc-if value="{{ isNarrow }}" hint-placeholder-val="{{ true }}">
-    <div style="display:flex;align-items:center;gap:11px;padding:6px 2px 16px;">
-      <div style="width:40px;height:40px;border-radius:13px;background:#0b0f10;display:flex;align-items:center;justify-content:center;flex:none;">
-        <span style="font-family:Archivo,Helvetica,sans-serif;font-size:15px;font-weight:700;color:#3fd0e6;letter-spacing:-0.02em;">{{ gymInitials }}</span>
-      </div>
-      <div style="flex:1;min-width:0;">
-        <div style="font-family:Archivo,Helvetica,sans-serif;font-size:16.5px;font-weight:700;letter-spacing:-0.03em;line-height:1.15;">{{ gymName }}</div>
-        <sc-if value="{{ gymLocation }}" hint-placeholder-val="{{ false }}"><div style="font-size:11.5px;font-weight:600;color:#7c868d;margin-top:2px;">{{ gymLocation }}</div></sc-if>
-      </div>
-      <div style="display:flex;align-items:center;gap:6px;background:#fff;border:1px solid #e2e8ea;border-radius:99px;padding:6px 10px 6px 7px;flex:none;">
-        <img src="./fitowl-owl.png" alt="" style="width:17px;height:17px;object-fit:contain;display:block;" />
-        <span style="font-family:Archivo,Helvetica,sans-serif;font-size:11.5px;font-weight:700;color:#3b444b;letter-spacing:-0.01em;">fitowl</span>
-      </div>
-    </div>
-  </sc-if>
-
-  <div style="background:#fff;border:1px solid #e2e8ea;border-radius:26px;padding:{{ cardPad }};box-shadow:0 1px 2px rgba(11,15,16,0.04),0 18px 40px -28px rgba(11,15,16,0.28);">
+  <div style="background:#fff;border:1px solid #e6edf6;border-radius:26px;padding:22px 18px 20px;box-shadow:0 1px 2px rgba(16,24,40,0.03),0 20px 44px -32px rgba(20,60,120,0.35);">
 
     <sc-if value="{{ showStepper }}" hint-placeholder-val="{{ true }}">
-    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;">
-        <div style="font-size:11px;font-weight:700;color:#0e8fa3;letter-spacing:0.12em;text-transform:uppercase;white-space:nowrap;">Step {{ stepNum }} of 3</div>
-        <div style="font-size:11px;font-weight:600;color:#98a2aa;white-space:nowrap;">{{ minsLeft }}</div>
-      </div>
-  
-      <div style="display:flex;gap:6px;margin-top:10px;">
-        <div style="height:4px;flex:1;border-radius:99px;background:{{ bar1 }};"></div>
-        <div style="height:4px;flex:1;border-radius:99px;background:{{ bar2 }};"></div>
-        <div style="height:4px;flex:1;border-radius:99px;background:{{ bar3 }};"></div>
+      <div>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;">
+          <div style="font-size:11px;font-weight:700;color:#1a7cff;letter-spacing:0.12em;text-transform:uppercase;white-space:nowrap;">Step {{ stepNum }} of 3</div>
+          <div style="font-size:11px;font-weight:600;color:#98a5b6;white-space:nowrap;">{{ minsLeft }}</div>
+        </div>
+        <div style="display:flex;gap:6px;margin-top:10px;">
+          <div style="height:4px;flex:1;border-radius:99px;background:{{ bar1 }};"></div>
+          <div style="height:4px;flex:1;border-radius:99px;background:{{ bar2 }};"></div>
+          <div style="height:4px;flex:1;border-radius:99px;background:{{ bar3 }};"></div>
+        </div>
       </div>
     </sc-if>
 
-    <h1 style="font-family:Archivo,Helvetica,sans-serif;font-size:29px;line-height:1.08;letter-spacing:-0.035em;font-weight:700;margin:16px 0 6px;">{{ title }}</h1>
-    <p style="margin:0 0 22px;font-size:14px;line-height:1.5;color:#6b7480;">{{ subtitle }}</p>
+    <h1 style="font-family:Archivo,Helvetica,sans-serif;font-size:29px;line-height:1.08;letter-spacing:-0.035em;font-weight:700;margin:16px 0 6px;text-align:{{ headAlign }};">{{ title }}</h1>
+    <p style="margin:0 0 22px;font-size:14px;line-height:1.5;color:#6b7b90;text-align:{{ headAlign }};">{{ subtitle }}</p>
 
     <sc-if value="{{ isS1 }}" hint-placeholder-val="{{ true }}">
       <div style="display:flex;flex-direction:column;gap:18px;animation:rise .28s ease both;">
 
         <div style="display:flex;flex-direction:column;gap:7px;">
-          <label for="full_name" style="font-size:13px;font-weight:600;color:#3b444b;">Full Name</label>
-          <input id="full_name" name="full_name" value="{{ v.name }}" onChange="{{ on.name }}" placeholder="e.g. Rahul Sharma" autoComplete="name" style="height:52px;border-radius:15px;border:1.5px solid #e2e8ea;background:#f8fafa;padding:0 15px;font-size:16px;font-weight:500;color:#0b0f10;outline:none;transition:border-color .15s,background .15s;" style-focus="border-color:#0b0f10;background:#fff;" />
+          <label for="full_name" style="font-size:13px;font-weight:600;color:#344054;">Full Name</label>
+          <input id="full_name" name="full_name" value="{{ v.name }}" onChange="{{ on.name }}" placeholder="e.g. Rahul Sharma" autoComplete="name" style="height:52px;border-radius:15px;border:1.5px solid #e4eaf2;background:#f8fbff;padding:0 15px;font-size:16px;font-weight:500;color:#101828;outline:none;transition:border-color .15s,box-shadow .15s,background .15s;" style-focus="border-color:#1a7cff;background:#fff;box-shadow:0 0 0 4px rgba(26,124,255,0.12);" />
           <sc-if value="{{ err.name }}" hint-placeholder-val="{{ false }}">
-            <div style="font-size:12px;font-weight:600;color:#c2453c;">{{ err.name }}</div>
+            <div style="font-size:12px;font-weight:600;color:#f04438;">{{ err.name }}</div>
           </sc-if>
         </div>
 
         <div style="display:flex;flex-direction:column;gap:7px;">
-          <label for="mobile" style="font-size:13px;font-weight:600;color:#3b444b;">Mobile Number</label>
+          <label for="mobile" style="font-size:13px;font-weight:600;color:#344054;">Mobile Number</label>
           <div style="display:flex;align-items:stretch;gap:8px;">
-            <div style="height:52px;min-width:70px;border-radius:15px;border:1.5px solid #e2e8ea;background:#f2f5f6;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#3b444b;">+91</div>
-            <input id="mobile" name="mobile" value="{{ v.mobile }}" onChange="{{ on.mobile }}" autoComplete="tel" inputMode="numeric" placeholder="10-digit number" style="flex:1;height:52px;border-radius:15px;border:1.5px solid #e2e8ea;background:#f8fafa;padding:0 15px;font-size:16px;font-weight:500;letter-spacing:0.04em;color:#0b0f10;outline:none;transition:border-color .15s,background .15s;" style-focus="border-color:#0b0f10;background:#fff;" />
+            <div style="height:52px;min-width:70px;border-radius:15px;border:1.5px solid #e4eaf2;background:#eef4fc;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#344054;flex:none;">+91</div>
+            <input id="mobile" name="mobile" value="{{ v.mobile }}" onChange="{{ on.mobile }}" inputMode="numeric" autoComplete="tel" placeholder="10-digit number" style="flex:1;min-width:0;height:52px;border-radius:15px;border:1.5px solid #e4eaf2;background:#f8fbff;padding:0 15px;font-size:16px;font-weight:500;letter-spacing:0.04em;color:#101828;outline:none;transition:border-color .15s,box-shadow .15s,background .15s;" style-focus="border-color:#1a7cff;background:#fff;box-shadow:0 0 0 4px rgba(26,124,255,0.12);" />
           </div>
           <sc-if value="{{ err.mobile }}" hint-placeholder-val="{{ false }}">
-            <div style="font-size:12px;font-weight:600;color:#c2453c;">{{ err.mobile }}</div>
+            <div style="font-size:12px;font-weight:600;color:#f04438;">{{ err.mobile }}</div>
           </sc-if>
         </div>
 
         <div style="display:flex;flex-direction:column;gap:10px;">
-          <label style="font-size:13px;font-weight:600;color:#3b444b;">Select Membership Plan</label>
+          <label style="font-size:13px;font-weight:600;color:#344054;">Select Membership Plan</label>
           <sc-for list="{{ plans }}" as="p" hint-placeholder-count="3">
             <button type="button" onClick="{{ p.pick }}" style="{{ p.cardStyle }}">
               <div style="{{ p.dotStyle }}"></div>
-              <div style="flex:1;text-align:left;">
-                <div style="display:flex;align-items:center;gap:8px;">
+              <div style="flex:1;text-align:left;min-width:0;">
+                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
                   <span style="font-size:15px;font-weight:700;letter-spacing:-0.01em;">{{ p.label }}</span>
                   <sc-if value="{{ p.tag }}" hint-placeholder-val="{{ false }}">
-                    <span style="font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#08616f;background:#d6f2f6;padding:3px 7px;border-radius:99px;">{{ p.tag }}</span>
+                    <span style="font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#1a6fe8;background:#e6f1ff;padding:3px 7px;border-radius:99px;">{{ p.tag }}</span>
                   </sc-if>
                 </div>
-                <div style="font-size:12.5px;color:#6b7480;margin-top:3px;font-weight:500;">{{ p.note }}</div>
+                <div style="font-size:12.5px;color:#7a8899;margin-top:3px;font-weight:500;">{{ p.note }}</div>
               </div>
               <div style="text-align:right;flex:none;white-space:nowrap;">
                 <div style="font-family:Archivo,Helvetica,sans-serif;font-size:17px;font-weight:700;letter-spacing:-0.02em;">{{ p.price }}</div>
-                <div style="font-size:11px;color:#98a2aa;font-weight:600;margin-top:2px;">{{ p.per }}</div>
+                <div style="font-size:11px;color:#98a5b6;font-weight:600;margin-top:2px;">{{ p.per }}</div>
               </div>
             </button>
           </sc-for>
@@ -154,37 +111,37 @@
       <div style="display:flex;flex-direction:column;gap:18px;animation:rise .28s ease both;">
 
         <div style="display:flex;gap:12px;">
-          <div style="width:110px;display:flex;flex-direction:column;gap:7px;">
-            <label for="age" style="font-size:13px;font-weight:600;color:#3b444b;">Age</label>
-            <input id="age" name="age" value="{{ v.age }}" onChange="{{ on.age }}" inputMode="numeric" placeholder="24" style="height:52px;border-radius:15px;border:1.5px solid #e2e8ea;background:#f8fafa;padding:0 15px;font-size:16px;font-weight:500;outline:none;transition:border-color .15s,background .15s;" style-focus="border-color:#0b0f10;background:#fff;" />
+          <div style="width:104px;flex:none;display:flex;flex-direction:column;gap:7px;">
+            <label for="age" style="font-size:13px;font-weight:600;color:#344054;">Age</label>
+            <input id="age" name="age" value="{{ v.age }}" onChange="{{ on.age }}" inputMode="numeric" placeholder="24" style="height:52px;border-radius:15px;border:1.5px solid #e4eaf2;background:#f8fbff;padding:0 15px;font-size:16px;font-weight:500;outline:none;transition:border-color .15s,box-shadow .15s,background .15s;" style-focus="border-color:#1a7cff;background:#fff;box-shadow:0 0 0 4px rgba(26,124,255,0.12);" />
           </div>
-          <div style="flex:1;display:flex;flex-direction:column;gap:7px;">
-            <label for="email" style="font-size:13px;font-weight:600;color:#3b444b;">Email</label>
-            <input id="email" name="email" type="email" value="{{ v.email }}" onChange="{{ on.email }}" autoComplete="email" inputMode="email" placeholder="you@email.com" style="height:52px;border-radius:15px;border:1.5px solid #e2e8ea;background:#f8fafa;padding:0 15px;font-size:16px;font-weight:500;outline:none;transition:border-color .15s,background .15s;" style-focus="border-color:#0b0f10;background:#fff;" />
+          <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:7px;">
+            <label for="email" style="font-size:13px;font-weight:600;color:#344054;">Email</label>
+            <input id="email" name="email" type="email" value="{{ v.email }}" onChange="{{ on.email }}" autoComplete="email" placeholder="you@email.com" style="width:100%;height:52px;border-radius:15px;border:1.5px solid #e4eaf2;background:#f8fbff;padding:0 15px;font-size:16px;font-weight:500;outline:none;transition:border-color .15s,box-shadow .15s,background .15s;" style-focus="border-color:#1a7cff;background:#fff;box-shadow:0 0 0 4px rgba(26,124,255,0.12);" />
           </div>
         </div>
         <sc-if value="{{ err.step2 }}" hint-placeholder-val="{{ false }}">
-          <div style="font-size:12px;font-weight:600;color:#c2453c;margin-top:-12px;">{{ err.step2 }}</div>
+          <div style="font-size:12px;font-weight:600;color:#f04438;margin-top:-12px;">{{ err.step2 }}</div>
         </sc-if>
 
         <div style="display:flex;flex-direction:column;gap:10px;">
-          <label style="font-size:13px;font-weight:600;color:#3b444b;">Fitness Goal</label>
+          <label style="font-size:13px;font-weight:600;color:#344054;">Fitness Goal</label>
           <div style="display:flex;flex-wrap:wrap;gap:8px;">
             <sc-for list="{{ goals }}" as="g" hint-placeholder-count="5">
               <button type="button" onClick="{{ g.pick }}" style="{{ g.style }}">{{ g.label }}</button>
             </sc-for>
           </div>
           <sc-if value="{{ err.goal }}" hint-placeholder-val="{{ false }}">
-            <div style="font-size:12px;font-weight:600;color:#c2453c;">{{ err.goal }}</div>
+            <div style="font-size:12px;font-weight:600;color:#f04438;">{{ err.goal }}</div>
           </sc-if>
         </div>
 
         <div style="display:flex;flex-direction:column;gap:7px;">
           <div style="display:flex;align-items:center;gap:6px;">
-            <label for="address" style="font-size:13px;font-weight:600;color:#3b444b;">Address</label>
-            <span style="font-size:11px;font-weight:600;color:#98a2aa;">Optional</span>
+            <label for="address" style="font-size:13px;font-weight:600;color:#344054;">Address</label>
+            <span style="font-size:11px;font-weight:600;color:#98a5b6;">Optional</span>
           </div>
-          <textarea id="address" name="address" value="{{ v.addr }}" onChange="{{ on.addr }}" rows="3" placeholder="House / street, area, city" style="border-radius:15px;border:1.5px solid #e2e8ea;background:#f8fafa;padding:13px 15px;font-size:15px;font-weight:500;line-height:1.5;resize:none;outline:none;transition:border-color .15s,background .15s;" style-focus="border-color:#0b0f10;background:#fff;"></textarea>
+          <textarea id="address" name="address" value="{{ v.addr }}" onChange="{{ on.addr }}" rows="3" placeholder="House / street, area, city" style="width:100%;border-radius:15px;border:1.5px solid #e4eaf2;background:#f8fbff;padding:13px 15px;font-size:15px;font-weight:500;line-height:1.5;resize:none;outline:none;transition:border-color .15s,box-shadow .15s,background .15s;" style-focus="border-color:#1a7cff;background:#fff;box-shadow:0 0 0 4px rgba(26,124,255,0.12);"></textarea>
         </div>
       </div>
     </sc-if>
@@ -192,131 +149,103 @@
     <sc-if value="{{ isS3 }}" hint-placeholder-val="{{ false }}">
       <div style="display:flex;flex-direction:column;gap:14px;animation:rise .28s ease both;">
 
-        <div style="border-radius:20px;padding:20px;background:linear-gradient(150deg,#0b0f10 0%,#132226 62%,#0f353d 100%);color:#fff;">
-          <div style="display:flex;align-items:center;justify-content:space-between;">
-            <span style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#7fdcea;">Your plan</span>
-            <button type="button" onClick="{{ toStep1 }}" style="background:rgba(255,255,255,0.12);border:none;color:#fff;font-size:11.5px;font-weight:700;padding:6px 11px;border-radius:99px;cursor:pointer;">Change</button>
+        <div style="border-radius:20px;padding:20px;background:linear-gradient(150deg,#e9f3ff 0%,#f4f9ff 58%,#ffffff 100%);border:1px solid #dbe9f9;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+            <span style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#1a7cff;white-space:nowrap;flex:none;">Your plan</span>
+            <button type="button" onClick="{{ toStep1 }}" style="background:#fff;border:1px solid #d5e5f7;color:#1a7cff;font-size:11.5px;font-weight:700;padding:6px 12px;border-radius:99px;cursor:pointer;">Change</button>
           </div>
           <div style="font-family:Archivo,Helvetica,sans-serif;font-size:38px;font-weight:700;letter-spacing:-0.04em;margin-top:12px;line-height:1;">{{ planPrice }}</div>
-          <div style="font-size:14px;font-weight:600;color:#b7c4c8;margin-top:6px;">{{ planLine }}</div>
-          <div style="height:1px;background:rgba(255,255,255,0.14);margin:16px 0 13px;"></div>
-          <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;color:#cfd9dc;">
-            <span>Start date</span><span style="color:#fff;">{{ startDate }}</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;color:#cfd9dc;margin-top:8px;">
-            <span>Valid till</span><span style="color:#fff;">{{ endDate }}</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;color:#cfd9dc;margin-top:8px;">
-            <span>Payment mode</span><span style="color:#7fdcea;">Cash at counter</span>
-          </div>
-        </div>
-
-        <div style="border:1px solid #e2e8ea;border-radius:20px;padding:16px 16px 6px;background:#fbfcfc;">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
-            <span style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#6b7480;">Member</span>
-            <button type="button" onClick="{{ toStep1 }}" style="background:none;border:none;color:#0e8fa3;font-size:11.5px;font-weight:700;cursor:pointer;padding:0;">Edit</button>
-          </div>
-          <sc-for list="{{ summary }}" as="s" hint-placeholder-count="4">
-            <div style="display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-top:1px solid #edf1f2;">
-              <span style="font-size:13px;font-weight:600;color:#6b7480;">{{ s.k }}</span>
-              <span style="font-size:13px;font-weight:600;text-align:right;">{{ s.val }}</span>
+          <div style="font-size:14px;font-weight:600;color:#5b6b80;margin-top:6px;">{{ planLine }}</div>
+          <div style="height:1px;background:#dbe9f9;margin:16px 0 13px;"></div>
+          <sc-for list="{{ planRows }}" as="r" hint-placeholder-count="3">
+            <div style="display:flex;justify-content:space-between;gap:12px;font-size:13px;font-weight:600;color:#6b7b90;padding:4px 0;">
+              <span>{{ r.k }}</span><span style="color:#101828;text-align:right;">{{ r.val }}</span>
             </div>
           </sc-for>
         </div>
 
-        <div style="border:1.5px solid #0b0f10;border-radius:20px;padding:15px 16px;display:flex;align-items:center;gap:13px;background:#fbfcfc;">
-          <div style="width:38px;height:38px;flex:none;border-radius:12px;background:#d6f2f6;display:flex;align-items:center;justify-content:center;font-family:Archivo,Helvetica,sans-serif;font-size:15px;font-weight:700;color:#08616f;">₹</div>
-          <div style="flex:1;">
+        <div style="border:1px solid #e6edf6;border-radius:20px;padding:16px 16px 6px;background:#fcfdff;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+            <span style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#7a8899;">Member</span>
+            <button type="button" onClick="{{ toStep1 }}" style="background:none;border:none;color:#1a7cff;font-size:11.5px;font-weight:700;cursor:pointer;padding:0;">Edit</button>
+          </div>
+          <sc-for list="{{ summary }}" as="s" hint-placeholder-count="4">
+            <div style="display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-top:1px solid #eef2f7;">
+              <span style="font-size:13px;font-weight:600;color:#7a8899;flex:none;">{{ s.k }}</span>
+              <span style="font-size:13px;font-weight:600;text-align:right;word-break:break-word;">{{ s.val }}</span>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="border:1.5px solid #1a7cff;border-radius:20px;padding:15px 16px;display:flex;align-items:center;gap:13px;background:#f6faff;">
+          <div style="width:38px;height:38px;flex:none;border-radius:12px;background:#e2efff;display:flex;align-items:center;justify-content:center;font-family:Archivo,Helvetica,sans-serif;font-size:15px;font-weight:700;color:#1a7cff;">₹</div>
+          <div style="flex:1;min-width:0;">
             <div style="font-size:14px;font-weight:700;letter-spacing:-0.01em;">Cash at the counter</div>
-            <div style="font-size:12.5px;font-weight:500;color:#6b7480;margin-top:2px;">Hand over {{ planPrice }} at reception — online payment coming soon.</div>
+            <div style="font-size:12.5px;font-weight:500;color:#6b7b90;margin-top:2px;line-height:1.4;">Hand over {{ planPrice }} at reception — online payment coming soon.</div>
           </div>
         </div>
       </div>
     </sc-if>
 
     <sc-if value="{{ isDone }}" hint-placeholder-val="{{ false }}">
-      <div style="text-align:center;padding:12px 4px 8px;animation:rise .3s ease both;">
-        <div style="width:78px;height:78px;border-radius:50%;background:radial-gradient(circle at 50% 40%,#e2f6fa,#f2f8f9);margin:0 auto 18px;display:flex;align-items:center;justify-content:center;">
+      <div style="text-align:center;padding:2px 4px 8px;animation:rise .3s ease both;">
+        <div style="width:78px;height:78px;border-radius:50%;background:radial-gradient(circle at 50% 40%,#e2efff,#f4f9ff);margin:0 auto 18px;display:flex;align-items:center;justify-content:center;">
           <img src="./fitowl-owl.png" alt="" style="width:46px;height:46px;object-fit:contain;display:block;" />
         </div>
-        <p style="font-size:14px;line-height:1.55;color:#6b7480;margin:8px 0 0;">Details saved. Pay <strong style="color:#0b0f10;">{{ planPrice }}</strong> in cash at the counter and your membership starts {{ startDate }}.</p>
-        <div style="margin-top:18px;border:1px dashed #cfd9dc;border-radius:16px;padding:14px;font-size:13px;font-weight:600;color:#3b444b;">Member ID <span style="font-family:Archivo,Helvetica,sans-serif;letter-spacing:0.06em;">{{ memberId }}</span></div>
-      </div>
-    </sc-if>
-
-    <sc-if value="{{ inlineCta }}" hint-placeholder-val="{{ false }}">
-      <div style="display:flex;gap:10px;align-items:center;margin-top:26px;">
-        <sc-if value="{{ showBack }}" hint-placeholder-val="{{ false }}">
-          <button type="button" onClick="{{ back }}" style="height:56px;min-width:58px;border-radius:18px;border:1.5px solid #dde4e6;background:#fff;font-size:20px;font-weight:600;color:#3b444b;cursor:pointer;" style-hover="border-color:#0b0f10;">←</button>
-        </sc-if>
-        <button type="button" onClick="{{ next }}" style="flex:1;height:56px;border-radius:18px;border:none;background:#0b0f10;color:#fff;font-family:Archivo,Helvetica,sans-serif;font-size:16px;font-weight:600;letter-spacing:-0.01em;cursor:pointer;box-shadow:0 12px 26px -14px rgba(11,15,16,0.7);transition:transform .12s,background .15s;" style-hover="background:#162326;" style-active="transform:scale(0.985);">{{ ctaLabel }}</button>
+        <p style="font-size:14px;line-height:1.55;color:#6b7b90;margin:0;">Details saved. Pay <strong style="color:#101828;">{{ planPrice }}</strong> in cash at the counter and your membership starts {{ startDate }}.</p>
+        <div style="margin-top:18px;border:1px dashed #d5e0ee;border-radius:16px;padding:14px;font-size:13px;font-weight:600;color:#5b6b80;">Member ID <span style="font-family:Archivo,Helvetica,sans-serif;letter-spacing:0.06em;color:#101828;">{{ memberId }}</span></div>
       </div>
     </sc-if>
   </div>
 
   <div style="display:flex;align-items:center;justify-content:center;gap:7px;margin-top:16px;">
-    <span style="font-size:11.5px;font-weight:600;color:#8b959c;">Your data is 100% safe · powered by</span>
-    <span style="font-family:Archivo,Helvetica,sans-serif;font-size:12px;font-weight:700;color:#3b444b;">fitowl</span>
+    <span style="font-size:11.5px;font-weight:600;color:#98a5b6;">Your data is 100% safe · powered by</span>
+    <span style="font-family:Archivo,Helvetica,sans-serif;font-size:12px;font-weight:700;color:#475467;">fitowl</span>
   </div>
 </div>
-</div>
 
-<sc-if value="{{ stickyCta }}" hint-placeholder-val="{{ true }}">
+<sc-if value="{{ showCta }}" hint-placeholder-val="{{ true }}">
   <div style="position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:center;pointer-events:none;">
-    <div style="width:100%;max-width:440px;padding:14px 16px 18px;background:linear-gradient(180deg,rgba(246,247,248,0) 0%,rgba(246,247,248,0.92) 42%,#f6f7f8 100%);pointer-events:auto;">
+    <div style="width:100%;max-width:430px;padding:14px 16px 18px;background:linear-gradient(180deg,rgba(238,244,251,0) 0%,rgba(238,244,251,0.9) 40%,#eef4fb 82%);backdrop-filter:blur(6px);pointer-events:auto;">
       <div style="display:flex;gap:10px;align-items:center;">
         <sc-if value="{{ showBack }}" hint-placeholder-val="{{ false }}">
-          <button type="button" onClick="{{ back }}" style="height:56px;min-width:56px;border-radius:18px;border:1.5px solid #dde4e6;background:#fff;font-size:20px;font-weight:600;color:#3b444b;cursor:pointer;">←</button>
+          <button type="button" onClick="{{ back }}" style="height:56px;min-width:56px;border-radius:18px;border:1.5px solid #dfe8f2;background:#fff;font-size:20px;font-weight:600;color:#5b6b80;cursor:pointer;">←</button>
         </sc-if>
-        <button type="button" onClick="{{ next }}" style="flex:1;height:56px;border-radius:18px;border:none;background:#0b0f10;color:#fff;font-family:Archivo,Helvetica,sans-serif;font-size:16px;font-weight:600;letter-spacing:-0.01em;cursor:pointer;box-shadow:0 12px 26px -14px rgba(11,15,16,0.7);transition:transform .12s;" style-active="transform:scale(0.985);">{{ ctaLabel }}</button>
+        <button type="button" onClick="{{ next }}" style="flex:1;min-width:0;height:56px;border-radius:18px;border:none;background:linear-gradient(180deg,#3b90ff,#1a7cff);color:#fff;font-family:Archivo,Helvetica,sans-serif;font-size:16px;font-weight:600;letter-spacing:-0.01em;cursor:pointer;box-shadow:0 14px 28px -12px rgba(26,124,255,0.7);transition:transform .12s;" style-active="transform:scale(0.985);">{{ ctaLabel }}</button>
       </div>
     </div>
   </div>
 </sc-if>
+</div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:420,&quot;height&quot;:880},&quot;gymName&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Your Gym Name&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Gym&quot;},&quot;gymLocation&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Gym&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844},&quot;gymName&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Your Gym Name&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
   state = {
-    wide: typeof window !== 'undefined' && window.innerWidth >= 900,
     step: 1, done: false,
     f: { name: '', mobile: '', plan: 'year', age: '', email: '', goal: '', addr: '' },
     err: {}
   };
 
-  componentDidMount() {
-    this._onResize = () => {
-      const wide = window.innerWidth >= 900;
-      if (wide !== this.state.wide) this.setState({ wide });
-    };
-    window.addEventListener('resize', this._onResize);
-    this._onResize();
-  }
-
-  componentWillUnmount() { window.removeEventListener('resize', this._onResize); }
-
   set(k, val) {
-    this.setState(s => ({ f: { ...s.f, [k]: val }, err: { ...s.err, [k]: null } }));
+    this.setState(s => ({ f: { ...s.f, [k]: val }, err: { ...s.err, [k]: null, step2: null } }));
   }
 
   planList() {
     return [
       { id: 'month', label: 'Monthly', price: 800, per: '/ month', note: 'Pay as you go' },
       { id: 'quarter', label: 'Quarterly', price: 2100, per: '/ 3 months', note: 'Save ₹300' },
-      { id: 'year', label: 'Yearly', price: 7000, per: '/ year', note: '2 months free + diet plan', tag: 'Best value' }
+      { id: 'year', label: 'Yearly', price: 7000, per: '/ year', note: '2 months free', tag: 'Best value' }
     ];
   }
 
   money(n) { return '₹' + n.toLocaleString('en-IN'); }
-
-  fmt(d) {
-    return d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
-  }
+  fmt(d) { return d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }); }
 
   validate() {
     const f = this.state.f, e = {};
     if (this.state.step === 1) {
       if (f.name.trim().length < 3) e.name = 'Please enter your full name';
-      if (!/^[6-9]\d{9}$/.test(f.mobile.replace(/\D/g, ''))) e.mobile = 'Enter a valid 10-digit mobile number';
+      if (!/^[6-9]\d{9}$/.test(f.mobile)) e.mobile = 'Enter a valid 10-digit mobile number';
     } else if (this.state.step === 2) {
       const age = parseInt(f.age, 10);
       if (!(age >= 12 && age <= 99)) e.step2 = 'Enter an age between 12 and 99';
@@ -330,13 +259,16 @@ class Component extends DCLogic {
   next = () => {
     if (this.state.done) return;
     if (this.state.step === 3) { this.setState({ done: true }); return; }
-    if (this.validate()) this.setState(s => ({ step: s.step + 1 }));
+    if (this.validate()) {
+      this.setState(s => ({ step: s.step + 1 }));
+      if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   back = () => this.setState(s => ({ step: Math.max(1, s.step - 1), err: {} }));
 
   renderVals() {
-    const { step, done, f, err, wide } = this.state;
+    const { step, done, f, err } = this.state;
     const plan = this.planList().find(p => p.id === f.plan) || this.planList()[2];
     const start = new Date();
     const end = new Date(start);
@@ -357,19 +289,17 @@ class Component extends DCLogic {
     const plans = this.planList().map(p => {
       const sel = p.id === f.plan;
       return {
-        ...p,
-        price: this.money(p.price),
-        tag: p.tag || '',
+        ...p, price: this.money(p.price), tag: p.tag || '',
         pick: () => this.set('plan', p.id),
         cardStyle: [
-          'display:flex;align-items:center;gap:12px;width:100%;padding:14px 15px;border-radius:17px;cursor:pointer;text-align:left;font-family:inherit;color:#0b0f10;transition:border-color .15s,background .15s',
-          'border:1.5px solid ' + (sel ? '#0b0f10' : '#e2e8ea'),
-          'background:' + (sel ? '#fff' : '#f8fafa'),
-          'box-shadow:' + (sel ? '0 10px 24px -18px rgba(11,15,16,0.6)' : 'none')
+          'display:flex;align-items:center;gap:12px;width:100%;padding:14px 15px;border-radius:17px;cursor:pointer;text-align:left;font-family:inherit;color:#101828;transition:all .15s',
+          'border:1.5px solid ' + (sel ? '#1a7cff' : '#e4eaf2'),
+          'background:' + (sel ? '#f6faff' : '#f8fbff'),
+          'box-shadow:' + (sel ? '0 12px 24px -18px rgba(26,124,255,0.65)' : 'none')
         ].join(';'),
         dotStyle: [
           'width:20px;height:20px;border-radius:50%;flex:none;display:block',
-          'border:' + (sel ? '6px solid #0e8fa3' : '2px solid #cfd9dc'),
+          'border:' + (sel ? '6px solid #1a7cff' : '2px solid #d3dde9'),
           'background:#fff'
         ].join(';')
       };
@@ -378,13 +308,12 @@ class Component extends DCLogic {
     const goals = ['Weight loss', 'Muscle gain', 'Strength', 'General fitness', 'Cardio & stamina'].map(g => {
       const sel = g === f.goal;
       return {
-        label: g,
-        pick: () => this.set('goal', g),
+        label: g, pick: () => this.set('goal', g),
         style: [
           'padding:11px 15px;border-radius:99px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s',
-          'border:1.5px solid ' + (sel ? '#0b0f10' : '#e2e8ea'),
-          'background:' + (sel ? '#0b0f10' : '#f8fafa'),
-          'color:' + (sel ? '#fff' : '#3b444b')
+          'border:1.5px solid ' + (sel ? '#1a7cff' : '#e4eaf2'),
+          'background:' + (sel ? '#1a7cff' : '#f8fbff'),
+          'color:' + (sel ? '#fff' : '#475467')
         ].join(';')
       };
     });
@@ -396,19 +325,26 @@ class Component extends DCLogic {
     };
     const t = titles[step];
     const gym = this.props.gymName ?? 'Your Gym Name';
-    const active = '#0b0f10', idle = '#e2e8ea';
+    const active = '#1a7cff', idle = '#e6edf6';
 
     return {
       stepNum: step, isS1: !done && step === 1, isS2: !done && step === 2, isS3: !done && step === 3, isDone: done,
-      title: done ? 'Welcome aboard' : t[0],
-      subtitle: done ? 'Membership confirmed.' : t[1],
+      showStepper: !done, headAlign: done ? 'center' : 'left',
+      title: done ? "You're in." : t[0],
+      subtitle: done ? 'Membership request confirmed.' : t[1],
       minsLeft: step === 3 ? 'Almost done' : 'Under 2 minutes',
       bar1: active, bar2: step >= 2 ? active : idle, bar3: step >= 3 ? active : idle,
+      gymName: gym,
+      gymInitials: gym.split(/\s+/).slice(0, 2).map(w => w[0]).join('').toUpperCase(),
       v: f, on, err, plans, goals,
       planPrice: this.money(plan.price),
       planLine: plan.label + ' membership · ' + plan.note,
-      startDate: 'Today, ' + this.fmt(start),
-      endDate: this.fmt(end),
+      startDate: 'today, ' + this.fmt(start),
+      planRows: [
+        { k: 'Start date', val: 'Today, ' + this.fmt(start) },
+        { k: 'Valid till', val: this.fmt(end) },
+        { k: 'Payment mode', val: 'Cash at counter' }
+      ],
       summary: [
         { k: 'Name', val: f.name || '—' },
         { k: 'Mobile', val: f.mobile ? '+91 ' + f.mobile : '—' },
@@ -419,21 +355,7 @@ class Component extends DCLogic {
       ],
       memberId: 'FO-' + String(start.getFullYear()).slice(2) + '-' + (f.mobile ? f.mobile.slice(-4) : '0000'),
       ctaLabel: step === 3 ? 'Confirm — pay ' + this.money(plan.price) + ' cash' : 'Continue →',
-      isWide: wide, isNarrow: !wide,
-      shellMax: wide ? '1120px' : '440px',
-      colMax: wide ? '512px' : '440px',
-      colPad: wide ? '52px 8px 60px' : '14px 16px 132px',
-      cardPad: wide ? '34px 32px 30px' : '22px 18px 20px',
-      gymName: gym,
-      gymInitials: gym.split(/\s+/).slice(0, 2).map(w => w[0]).join('').toUpperCase(),
-      gymLocation: this.props.gymLocation ?? '',
-      steps: [
-        { n: '1', l: 'Your details' },
-        { n: '2', l: 'A little about you' },
-        { n: '3', l: 'Confirm & pay at the counter' }
-      ],
-      inlineCta: wide && !done, stickyCta: !wide && !done,
-      showBack: step > 1,
+      showCta: !done, showBack: step > 1,
       next: this.next, back: this.back,
       toStep1: () => this.setState({ step: 1, err: {} })
     };
